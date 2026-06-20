@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ana Leah Basco | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Premium Google Fonts: Playfair Display (Serif) & Plus Jakarta Sans (Sans-Serif) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Kit for Minimal Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+    <!-- Minimal Navigation -->
     <nav class="navbar">
-        <div class="logo">Ana<span>Leah</span></div>
+        <div class="logo">ANA LEAH<span>BASCO</span></div>
         <ul class="nav-links">
             <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About Me</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#activities">Activities</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -26,84 +29,131 @@
         </div>
     </nav>
 
+    <!-- Editorial Hero Section -->
     <header id="hero" class="section hero">
         <div class="hero-content">
-            <h1>Hi, I'm <span class="highlight">Ana Leah Basco</span></h1>
-            <h2>Web Development Student</h2>
-            <p>Welcome to my initial webpage. This space will serve as the central hub for all my future class projects, activities, and coding achievements.</p>
-            <a href="#activities" class="btn"><i class="fa-solid fa-arrow-down"></i> Explore My Activities</a>
+            <p class="hero-tagline">Initial Webspace / Core Hub</p>
+            <h1>Creating clean digital spaces with <em>purpose</em> and <em>elegance</em>.</h1>
+            <div class="hero-footer">
+                <h2>Ana Leah Basco</h2>
+                <p>Web Development Student & Designer</p>
+                <a href="#activities" class="btn-minimal">Explore Activities <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
         </div>
     </header>
 
+    <!-- About Section -->
     <section id="about" class="section about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <p class="about-text">
-                I am a student passionate about building clean, interactive, and user-friendly web experiences. I created this portfolio as a foundational project for my web development course, designed to showcase my growth, technical skills, and practical assignments over time.
-            </p>
+        <div class="container border-top">
+            <div class="section-layout">
+                <div class="layout-left">
+                    <h2 class="section-title">01 / About Me</h2>
+                </div>
+                <div class="layout-right">
+                    <p class="about-text">
+                        I am a student passionate about building clean, interactive, and beautifully balanced web experiences. This space serves as the foundational core for my web development course—a live archive designed to track my technical growth, code evolution, and future layout implementations.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills" class="section skills">
-        <div class="container">
-            <h2 class="section-title">Core Skills</h2>
+        <div class="container border-top">
+            <h2 class="section-title">02 / Core Skills</h2>
             <div class="skills-grid">
-                <div class="skill-card"><i class="fa-brands fa-html5"></i> HTML5 Structure</div>
-                <div class="skill-card"><i class="fa-brands fa-css3-alt"></i> Responsive CSS3</div>
-                <div class="skill-card"><i class="fa-brands fa-js"></i> JavaScript Basics</div>
-                <div class="skill-card"><i class="fa-brands fa-git-alt"></i> Git & GitHub</div>
-                <div class="skill-card"><i class="fa-solid fa-laptop-code"></i> VS Code Workflow</div>
-                <div class="skill-card"><i class="fa-solid fa-mobile-screen-button"></i> Mobile-First Design</div>
+                <div class="skill-card">
+                    <span class="skill-num">01</span>
+                    <h3>HTML5</h3>
+                    <p>Semantic document structures</p>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-num">02</span>
+                    <h3>CSS3 Layouts</h3>
+                    <p>Responsive Flexbox & Grid systems</p>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-num">03</span>
+                    <h3>JavaScript</h3>
+                    <p>DOM manipulation & logic fundamentals</p>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-num">04</span>
+                    <h3>Git & Version Control</h3>
+                    <p>Repository tracking & automated deployment</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Future Activities Section -->
     <section id="activities" class="section activities">
-        <div class="container">
-            <h2 class="section-title">Future Activities</h2>
-            <p class="section-subtitle">This is where I will be publishing my upcoming laboratory exercises and projects.</p>
+        <div class="container border-top">
+            <h2 class="section-title">03 / Future Activities</h2>
+            <p class="section-subtitle">A progressive workspace for upcoming laboratory exercises and structural web challenges.</p>
+            
             <div class="project-grid">
+                <!-- Activity 1 -->
                 <div class="project-card">
-                    <div class="project-image"><i class="fa-solid fa-user-check fa-2x"></i></div>
-                    <div class="project-info">
-                        <h3>Activity 1: Personal Profile</h3>
-                        <p>Our initial assignment: setting up Git version control, GitHub Pages hosting, and a responsive custom layout.</p>
-                        <a href="#" class="btn-small"><i class="fa-solid fa-circle-check"></i> Current Page</a>
+                    <div class="project-header">
+                        <span>Activity 01</span>
+                        <span class="status-tag">Active</span>
                     </div>
+                    <h3>Personal Profile Space</h3>
+                    <p>Our initial environment layout setup, showcasing Git tracking alignment, responsive architectures, and curated Pinterest aesthetics.</p>
+                    <a href="#hero" class="card-link">Viewing Current Page <i class="fa-solid fa-arrow-turn-up"></i></a>
                 </div>
+
+                <!-- Activity 2 Placeholder -->
                 <div class="project-card pending">
-                    <div class="project-image"><i class="fa-solid fa-hourglass-start fa-2x"></i></div>
-                    <div class="project-info">
-                        <h3>Activity 2: Coming Soon</h3>
-                        <p>Placeholder for the next laboratory challenge or front-end programming implementation.</p>
-                        <a href="#" class="btn-small btn-disabled">Locked</a>
+                    <div class="project-header">
+                        <span>Activity 02</span>
+                        <span class="status-tag">Upcoming</span>
                     </div>
+                    <h3>Laboratory Exercise Two</h3>
+                    <p>Reserved placeholder for our upcoming development challenge, feature introduction, or advanced style implementation.</p>
+                    <span class="card-link-disabled">Awaiting Assignment</span>
                 </div>
+
+                <!-- Activity 3 Placeholder -->
                 <div class="project-card pending">
-                    <div class="project-image"><i class="fa-solid fa-code fa-2x"></i></div>
-                    <div class="project-info">
-                        <h3>Activity 3: Coming Soon</h3>
-                        <p>Placeholder for future interactive features, advanced layouts, or JavaScript exercises.</p>
-                        <a href="#" class="btn-small btn-disabled">Locked</a>
+                    <div class="project-header">
+                        <span>Activity 03</span>
+                        <span class="status-tag">Upcoming</span>
                     </div>
+                    <h3>Laboratory Exercise Three</h3>
+                    <p>Reserved placeholder for dynamic application features, custom interactivity states, or advanced class layouts.</p>
+                    <span class="card-link-disabled">Awaiting Assignment</span>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <p>Have any questions regarding my coursework or collaborations? Feel free to reach out!</p>
-            <div class="social-links">
-                <a href="mailto:your.email@example.com" class="btn"><i class="fa-solid fa-envelope"></i> Email Me</a>
-                <a href="https://github.com/yourusername" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub Profile</a>
+        <div class="container border-top">
+            <div class="section-layout">
+                <div class="layout-left">
+                    <h2 class="section-title">04 / Connect</h2>
+                </div>
+                <div class="layout-right">
+                    <p class="contact-text">Have questions regarding my upcoming coursework assignments or development milestones? Let's connect.</p>
+                    <div class="social-links">
+                        <a href="mailto:your.email@example.com" class="social-item">Email <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="https://github.com/yourusername" target="_blank" class="social-item">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Ana Leah Basco. Prepared for Web Development Coursework.</p>
+    <!-- Minimal Editorial Footer -->
+    <footer class="footer">
+        <div class="container border-top footer-content">
+            <p>&copy; 2026 Ana Leah Basco.</p>
+            <p>Web Development Initial Environment Portfolio.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
