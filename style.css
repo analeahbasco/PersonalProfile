@@ -1,21 +1,22 @@
-/* --- Elegant & Lively Animation System --- */
+/* --- Original Pinterest Beige & Advanced Animations --- */
 :root {
-    --line-color: #382119;      
+    --line-color: #2A2623;      
     
-    /* Lively Peach Blossom Tone Spectrum */
-    --color-cream: #FFFBF7;     /* Bright Alabaster White */
-    --color-peach: #FDF0E2;     /* Sweet Peach Cream Tint */
-    --color-apricot: #F7DBC3;   /* Warm Apricot Sorbet */
-    --color-outer: #F2BE99;     /* Lively Coral Sunset Frame */
+    /* The Original Pinterest Beige Spectrum */
+    --color-cream: #FAF8F5;     /* Creamy Off-White (Hero & Skills) */
+    --color-beige: #F5F2EB;     /* Soft Linen Beige (About) */
+    --color-oatmeal: #EAE6DF;   /* Muted Sand/Oat (Activities) */
+    --color-outer: #E5E0D8;     /* Outer Frame Wrapper Background */
     
-    --text-main: #382119;       /* Dark Cocoa */
-    --text-sub: #7A5345;        /* Terracotta */
+    --text-main: #2B2825;       /* Warm Charcoal */
+    --text-sub: #7A736D;        /* Soft Slate Sand */
     
     --font-serif: 'Playfair Display', serif;
     --font-sans: 'Plus Jakarta Sans', sans-serif;
 
-    /* Custom Animation Easing (Super Smooth) */
+    /* Custom Animation Easing */
     --ease-editorial: cubic-bezier(0.25, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 * {
@@ -40,7 +41,7 @@ body {
     max-width: 1300px;
     margin: 0 auto;
     border: 1px solid var(--line-color);
-    box-shadow: 0 20px 60px rgba(56, 33, 25, 0.15);
+    box-shadow: 0 20px 60px rgba(43, 40, 37, 0.1);
 }
 
 /* --- Section Zones --- */
@@ -50,8 +51,8 @@ body {
 }
 
 .tint-cream { background-color: var(--color-cream); }
-.tint-peach { background-color: var(--color-peach); }
-.tint-apricot { background-color: var(--color-apricot); }
+.tint-beige { background-color: var(--color-beige); }
+.tint-oatmeal { background-color: var(--color-oatmeal); }
 
 /* --- Navigation --- */
 .navbar {
@@ -66,89 +67,60 @@ body {
     z-index: 1000;
 }
 
-.logo {
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-}
+.logo { font-size: 0.9rem; font-weight: 600; letter-spacing: 2px; }
+.logo span { font-weight: 300; color: var(--text-sub); margin-left: 4px; }
+.nav-links { list-style: none; display: flex; gap: 35px; }
 
-.logo span {
-    font-weight: 300;
-    color: var(--text-sub);
-    margin-left: 4px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 35px;
-}
-
-/* Elegant Animated Nav Underline */
+/* Animated Nav Underline */
 .nav-item {
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    position: relative;
-    padding-bottom: 4px;
-    color: var(--text-main);
+    font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    position: relative; padding-bottom: 4px; color: var(--text-main);
 }
-
 .nav-item::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--text-main);
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.4s var(--ease-editorial);
+    content: ''; position: absolute; width: 100%; height: 1px; bottom: 0; left: 0;
+    background-color: var(--text-main); transform: scaleX(0); transform-origin: bottom right; transition: transform 0.4s var(--ease-editorial);
 }
+.nav-item:hover::after { transform: scaleX(1); transform-origin: bottom left; }
 
-.nav-item:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
+/* Animated Hamburger 'X' */
+.hamburger { display: none; cursor: pointer; width: 24px; height: 18px; position: relative; }
+.bar { display: block; width: 100%; height: 2px; background-color: var(--text-main); position: absolute; left: 0; transition: transform 0.4s var(--ease-editorial), opacity 0.4s; }
+.bar1 { top: 0; }
+.bar2 { top: 8px; }
+.bar3 { top: 16px; }
 
-.hamburger { display: none; cursor: pointer; }
-.bar { display: block; width: 20px; height: 2px; margin: 4px auto; background-color: var(--text-main); transition: 0.3s; }
+.hamburger.active .bar1 { transform: translateY(8px) rotate(45deg); }
+.hamburger.active .bar2 { opacity: 0; }
+.hamburger.active .bar3 { transform: translateY(-8px) rotate(-45deg); }
 
 /* --- Hero --- */
 .hero-box { padding: 100px 40px; }
-.tagline { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--text-sub); font-weight: 600; margin-bottom: 30px; }
+.tagline { font-size: 0.8rem; text-transform: uppercase; color: var(--text-sub); font-weight: 600; margin-bottom: 30px; }
 .hero-box h1 { font-family: var(--font-serif); font-size: 3.5rem; font-weight: 400; line-height: 1.25; max-width: 1000px; margin-bottom: 80px; }
 .hero-box h1 em { font-style: italic; }
 .hero-details { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 25px; }
 .detail-block h2 { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 400; }
 .detail-block p { font-size: 0.85rem; color: var(--text-sub); letter-spacing: 0.5px; }
 
-/* Animated Arrow Button */
+/* Magnetic Button Wrapper */
+.magnetic-wrap {
+    display: inline-block;
+    padding: 10px; /* Gives mouse room to catch the magnet */
+}
+
 .btn-arrow {
     font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
     border-bottom: 1px solid var(--text-main); padding-bottom: 4px;
     display: inline-flex; align-items: center; gap: 8px;
-    transition: all 0.3s var(--ease-editorial);
+    transition: color 0.3s, border-color 0.3s; /* Removed transform transition so JS can control it */
+    cursor: pointer;
 }
-
-.btn-arrow i {
-    transition: transform 0.3s var(--ease-editorial);
-}
-
-.btn-arrow:hover {
-    gap: 15px;
-    color: var(--text-sub);
-    border-color: var(--text-sub);
-}
-
-.btn-arrow:hover i {
-    transform: translateX(4px);
-}
+.btn-arrow i { transition: transform 0.3s var(--ease-editorial); }
+.btn-arrow:hover { gap: 15px; color: var(--text-sub); border-color: var(--text-sub); }
+.btn-arrow:hover i { transform: translateX(4px); }
 
 /* --- Layout Elements --- */
-.box-label { padding: 15px 40px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; border-bottom: 1px solid var(--line-color); color: var(--text-sub); }
+.box-label { padding: 15px 40px; font-size: 0.75rem; text-transform: uppercase; font-weight: 600; border-bottom: 1px solid var(--line-color); color: var(--text-sub); }
 .about-content { padding: 80px 40px; max-width: 1000px; }
 .about-content p { font-family: var(--font-serif); font-size: 1.7rem; line-height: 1.5; }
 
@@ -163,9 +135,8 @@ body {
 .skill-cell:hover {
     background-color: #FFFFFF;
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(56, 33, 25, 0.08);
-    z-index: 2;
-    position: relative;
+    box-shadow: 0 10px 30px rgba(43, 40, 37, 0.08);
+    z-index: 2; position: relative;
 }
 
 .cell-num { display: block; font-size: 0.75rem; color: var(--text-sub); font-weight: 600; margin-bottom: 25px; }
@@ -186,9 +157,8 @@ body {
 .active-card:hover {
     background-color: #FFFFFF;
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(56, 33, 25, 0.08);
-    z-index: 2;
-    position: relative;
+    box-shadow: 0 10px 30px rgba(43, 40, 37, 0.08);
+    z-index: 2; position: relative;
 }
 
 .card-meta { display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 600; color: var(--text-sub); }
@@ -208,37 +178,28 @@ body {
 .footer-box { display: flex; justify-content: space-between; padding: 30px 40px; font-size: 0.75rem; color: var(--text-sub); text-transform: uppercase; letter-spacing: 1px; background-color: var(--color-cream); }
 
 /* =========================================
-   SCROLL REVEAL ANIMATIONS (The Magic) 
+   SCROLL REVEAL ANIMATIONS (Original + New) 
    ========================================= */
 
-/* Reveal Slide Up */
-.reveal-up {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s var(--ease-editorial), transform 0.8s var(--ease-editorial);
-}
+/* Original: Reveal Slide Up */
+.reveal-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s var(--ease-editorial), transform 0.8s var(--ease-editorial); }
 
-/* Elegant Text Wipe (Clip Path) */
-.reveal-wipe {
-    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: clip-path 1.2s var(--ease-editorial), opacity 1.2s ease, transform 1.2s var(--ease-editorial);
-}
+/* Original: Elegant Text Wipe */
+.reveal-wipe { clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); opacity: 0; transform: translateY(20px); transition: clip-path 1.2s var(--ease-editorial), opacity 1.2s ease, transform 1.2s var(--ease-editorial); }
 
-/* When Javascript adds the .is-visible class */
-.reveal-up.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* NEW: Letter Spacing Expansion */
+.reveal-spread { opacity: 0; letter-spacing: 10px; transition: opacity 1s ease, letter-spacing 1s var(--ease-editorial); }
 
-.reveal-wipe.is-visible {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    opacity: 1;
-    transform: translateY(0);
-}
+/* NEW: Soft Scale Bloom */
+.reveal-scale { opacity: 0; transform: scale(0.95) translateY(20px); transition: opacity 0.8s ease, transform 0.8s var(--ease-spring); }
 
-/* Delays and Staggers for smooth loading sequences */
+/* Trigger Classes Added via Javascript */
+.reveal-up.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-wipe.is-visible { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); opacity: 1; transform: translateY(0); }
+.reveal-spread.is-visible { opacity: 1; letter-spacing: 3px; } /* Ends at a nice 3px spacing */
+.reveal-scale.is-visible { opacity: 1; transform: scale(1) translateY(0); }
+
+/* Delays and Staggers */
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.2s; }
 .delay-3 { transition-delay: 0.3s; }
@@ -259,6 +220,6 @@ body {
 
 @media (max-width: 768px) {
     .hamburger { display: block; }
-    .nav-links { position: absolute; top: 71px; left: -101%; flex-direction: column; background-color: var(--color-cream); width: 102%; text-align: center; padding: 30px 0; gap: 20px; border-bottom: 1px solid var(--line-color); border-left: 1px solid var(--line-color); transition: 0.3s ease; }
+    .nav-links { position: absolute; top: 71px; left: -101%; flex-direction: column; background-color: var(--color-cream); width: 102%; text-align: center; padding: 30px 0; gap: 20px; border-bottom: 1px solid var(--line-color); border-left: 1px solid var(--line-color); transition: 0.4s var(--ease-editorial); }
     .nav-links.active { left: -1px; }
 }
