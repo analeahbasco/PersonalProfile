@@ -19,11 +19,11 @@
         <nav class="navbar">
             <div class="logo">ANA LEAH<span>BASCO</span></div>
             <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#activities">Activities</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#hero" class="nav-item">Home</a></li>
+                <li><a href="#about" class="nav-item">About</a></li>
+                <li><a href="#skills" class="nav-item">Skills</a></li>
+                <li><a href="#activities" class="nav-item">Activities</a></li>
+                <li><a href="#contact" class="nav-item">Contact</a></li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -36,48 +36,48 @@
         <main class="main-content">
             
             <!-- Home Section -->
-            <header id="hero" class="hero-box section-zone">
+            <header id="hero" class="hero-box section-zone tint-cream">
                 <div class="hero-inner">
-                    <p class="tagline">Initial Webspace // Vol. 01</p>
-                    <h1>Creating clean digital spaces with <em>purpose</em> and <em>elegance</em>.</h1>
+                    <p class="tagline reveal-up">Initial Webspace // Vol. 01</p>
+                    <h1 class="reveal-wipe delay-1">Creating clean digital spaces with <em>purpose</em> and <em>elegance</em>.</h1>
                     <div class="hero-details">
-                        <div class="detail-block">
+                        <div class="detail-block reveal-up delay-2">
                             <h2>Ana Leah Basco</h2>
                             <p>Web Development Student & Designer</p>
                         </div>
-                        <a href="#activities" class="btn-arrow">Explore Activities <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#activities" class="btn-arrow reveal-up delay-3">Explore Activities <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
             </header>
 
-            <!-- About Section (Alternating Tint) -->
-            <section id="about" class="about-box section-zone tint-beige">
-                <div class="box-label">01 / Profile Overview</div>
+            <!-- About Section -->
+            <section id="about" class="about-box section-zone tint-peach">
+                <div class="box-label reveal-up">01 / Profile Overview</div>
                 <div class="about-content">
-                    <p>I am a student passionate about building clean, interactive, and beautifully balanced web experiences. This space serves as the foundational core for my web development course—a live, structurally boxed archive designed to track my technical growth, code evolution, and future laboratory layout implementations.</p>
+                    <p class="reveal-wipe">I am a student passionate about building clean, interactive, and beautifully balanced web experiences. This space serves as the foundational core for my web development course—a live, structurally boxed archive designed to track my technical growth, code evolution, and future laboratory layout implementations.</p>
                 </div>
             </section>
 
-            <!-- Skills Section (Alternating Tint) -->
+            <!-- Skills Section -->
             <section id="skills" class="skills-box section-zone tint-cream">
-                <div class="box-label">02 / Technical Stack</div>
+                <div class="box-label reveal-up">02 / Technical Stack</div>
                 <div class="skills-grid">
-                    <div class="skill-cell">
+                    <div class="skill-cell reveal-up stagger-1">
                         <span class="cell-num">01</span>
                         <h3>HTML5 Architecture</h3>
                         <p>Semantic document rules</p>
                     </div>
-                    <div class="skill-cell">
+                    <div class="skill-cell reveal-up stagger-2">
                         <span class="cell-num">02</span>
                         <h3>CSS3 Grid & Flex</h3>
                         <p>Responsive modular layouts</p>
                     </div>
-                    <div class="skill-cell">
+                    <div class="skill-cell reveal-up stagger-3">
                         <span class="cell-num">03</span>
                         <h3>Vanilla JavaScript</h3>
                         <p>Interactive DOM states</p>
                     </div>
-                    <div class="skill-cell">
+                    <div class="skill-cell reveal-up stagger-4">
                         <span class="cell-num">04</span>
                         <h3>Git & GitHub</h3>
                         <p>Version control tracking</p>
@@ -85,38 +85,36 @@
                 </div>
             </section>
 
-            <!-- Activities Section (Alternating Tint) -->
-            <section id="activities" class="activities-box section-zone tint-oatmeal">
-                <div class="box-label">03 / Future Class Work</div>
+            <!-- Activities Section -->
+            <section id="activities" class="activities-box section-zone tint-apricot">
+                <div class="box-label reveal-up">03 / Future Class Work</div>
                 <div class="activities-grid">
-                    <!-- Activity Box 1 -->
-                    <div class="activity-card active-card">
+                    
+                    <div class="activity-card active-card reveal-up stagger-1">
                         <div class="card-meta">
                             <span>LAB 01</span>
                             <span class="status-indicator">Active</span>
                         </div>
                         <div class="card-body">
                             <h3>Personal Profile Environment</h3>
-                            <p>Setting up our local repository workflows, linking Visual Studio Code, deploying via GitHub Pages, and implementing refined editorial container box styles.</p>
+                            <p>Setting up our local repository workflows, deploying via GitHub Pages, and implementing refined editorial container styles.</p>
                         </div>
                         <a href="#hero" class="card-action">Currently Viewing <i class="fa-solid fa-arrow-turn-up"></i></a>
                     </div>
 
-                    <!-- Activity Box 2 -->
-                    <div class="activity-card pending-card">
+                    <div class="activity-card pending-card reveal-up stagger-2">
                         <div class="card-meta">
                             <span>LAB 02</span>
                             <span class="status-indicator muted">Upcoming</span>
                         </div>
                         <div class="card-body">
                             <h3>Laboratory Exercise Two</h3>
-                            <p>Reserved container block for the next scheduled technical layout, advanced scripting exercise, or interactive component structure.</p>
+                            <p>Reserved container block for the next scheduled technical layout, advanced scripting exercise, or component structure.</p>
                         </div>
                         <span class="card-action-disabled">Awaiting Assignment</span>
                     </div>
 
-                    <!-- Activity Box 3 -->
-                    <div class="activity-card pending-card">
+                    <div class="activity-card pending-card reveal-up stagger-3">
                         <div class="card-meta">
                             <span>LAB 03</span>
                             <span class="status-indicator muted">Upcoming</span>
@@ -130,14 +128,14 @@
                 </div>
             </section>
 
-            <!-- Contact Section (Alternating Tint) -->
+            <!-- Contact Section -->
             <section id="contact" class="contact-box section-zone tint-cream">
-                <div class="box-label">04 / Connectivity</div>
+                <div class="box-label reveal-up">04 / Connectivity</div>
                 <div class="contact-split">
-                    <h3>Have any inquiries regarding my laboratory milestones? Let's open a dialogue.</h3>
-                    <div class="contact-links">
-                        <a href="mailto:analeahbasco1@gmail.com" class="link-item">Email Me <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        <a href="https://github.com/nngn12" target="_blank" class="link-item">GitHub Code <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <h3 class="reveal-wipe">Have any inquiries regarding my laboratory milestones? Let's open a dialogue.</h3>
+                    <div class="contact-links reveal-up delay-2">
+                        <a href="mailto:your.email@example.com" class="link-item">Email Me <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="https://github.com/yourusername" target="_blank" class="link-item">GitHub Code <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
             </section>
@@ -147,7 +145,7 @@
         <!-- Boxed Footer -->
         <footer class="footer-box">
             <p>&copy; 2026 Ana Leah Basco.</p>
-            <p>Prepared for Initial Deliverables.</p>
+            <p>Prepared for Web Development Initial Deliverables.</p>
         </footer>
 
     </div>

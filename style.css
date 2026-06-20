@@ -1,18 +1,21 @@
-/* --- Premium Architectural Layout System --- */
+/* --- Elegant & Lively Animation System --- */
 :root {
-    --line-color: #1C2D27;      /* Deep Ivy Green for sharp, lively frames */
+    --line-color: #382119;      
     
-    /* Lively Tone Spectrum */
-    --color-cream: #F9FDFB;     /* Fresh Morning Milk (Hero & Skills) */
-    --color-beige: #E6F0EA;     /* Bright Mint Cream Tint (About) */
-    --color-oatmeal: #CDE2D6;   /* Lively Matcha Green (Activities) */
-    --color-outer: #A9CEBB;     /* Vibrant Sage Frame Background */
+    /* Lively Peach Blossom Tone Spectrum */
+    --color-cream: #FFFBF7;     /* Bright Alabaster White */
+    --color-peach: #FDF0E2;     /* Sweet Peach Cream Tint */
+    --color-apricot: #F7DBC3;   /* Warm Apricot Sorbet */
+    --color-outer: #F2BE99;     /* Lively Coral Sunset Frame */
     
-    --text-main: #1C2D27;       /* Rich Deep Ivy for high-contrast text */
-    --text-sub: #4A6358;        /* Forest Pine for sub-labels */
+    --text-main: #382119;       /* Dark Cocoa */
+    --text-sub: #7A5345;        /* Terracotta */
     
     --font-serif: 'Playfair Display', serif;
     --font-sans: 'Plus Jakarta Sans', sans-serif;
+
+    /* Custom Animation Easing (Super Smooth) */
+    --ease-editorial: cubic-bezier(0.25, 1, 0.3, 1);
 }
 
 * {
@@ -29,30 +32,28 @@ body {
     font-family: var(--font-sans);
     background-color: var(--color-outer);
     color: var(--text-main);
-    padding: 30px; /* Surrounds the whole layout with a premium editorial outer frame */
+    padding: 30px; 
     -webkit-font-smoothing: antialiased;
 }
 
-/* Outer Wireframe Box Frame Container */
 .page-wrapper {
     max-width: 1300px;
     margin: 0 auto;
     border: 1px solid var(--line-color);
-    box-shadow: 0 15px 50px rgba(42, 38, 35, 0.08);
+    box-shadow: 0 20px 60px rgba(56, 33, 25, 0.15);
 }
 
-/* --- Section Zone Background Alternation Rules --- */
+/* --- Section Zones --- */
 .section-zone {
     border-bottom: 1px solid var(--line-color);
-    transition: background-color 0.4s ease;
+    transition: background-color 0.5s var(--ease-editorial);
 }
 
-/* Assign unique tone shifts across your tabs */
 .tint-cream { background-color: var(--color-cream); }
-.tint-beige { background-color: var(--color-beige); }
-.tint-oatmeal { background-color: var(--color-oatmeal); }
+.tint-peach { background-color: var(--color-peach); }
+.tint-apricot { background-color: var(--color-apricot); }
 
-/* --- Navigation (Stuck to top) --- */
+/* --- Navigation --- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -83,295 +84,181 @@ body {
     gap: 35px;
 }
 
-.nav-links li a {
+/* Elegant Animated Nav Underline */
+.nav-item {
     font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    transition: opacity 0.2s;
-}
-
-.nav-links li a:hover {
-    opacity: 0.6;
-}
-
-.hamburger {
-    display: none;
-    cursor: pointer;
-}
-
-.bar {
-    display: block;
-    width: 20px;
-    height: 2px;
-    margin: 4px auto;
-    background-color: var(--text-main);
-}
-
-/* --- Home Tab Box --- */
-.hero-box {
-    padding: 100px 40px;
-    background-color: var(--color-cream);
-}
-
-.tagline {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--text-sub);
-    font-weight: 600;
-    margin-bottom: 30px;
-}
-
-.hero-box h1 {
-    font-family: var(--font-serif);
-    font-size: 3.5rem;
-    font-weight: 400;
-    line-height: 1.25;
-    max-width: 1000px;
-    margin-bottom: 80px;
-}
-
-.hero-box h1 em {
-    font-style: italic;
-}
-
-.hero-details {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 25px;
-}
-
-.detail-block h2 {
-    font-family: var(--font-serif);
-    font-size: 1.8rem;
-    font-weight: 400;
-}
-
-.detail-block p {
-    font-size: 0.85rem;
-    color: var(--text-sub);
-    letter-spacing: 0.5px;
-}
-
-.btn-arrow {
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 1px solid var(--text-main);
+    position: relative;
     padding-bottom: 4px;
-    transition: padding 0.3s;
+    color: var(--text-main);
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--text-main);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.4s var(--ease-editorial);
+}
+
+.nav-item:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.hamburger { display: none; cursor: pointer; }
+.bar { display: block; width: 20px; height: 2px; margin: 4px auto; background-color: var(--text-main); transition: 0.3s; }
+
+/* --- Hero --- */
+.hero-box { padding: 100px 40px; }
+.tagline { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--text-sub); font-weight: 600; margin-bottom: 30px; }
+.hero-box h1 { font-family: var(--font-serif); font-size: 3.5rem; font-weight: 400; line-height: 1.25; max-width: 1000px; margin-bottom: 80px; }
+.hero-box h1 em { font-style: italic; }
+.hero-details { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 25px; }
+.detail-block h2 { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 400; }
+.detail-block p { font-size: 0.85rem; color: var(--text-sub); letter-spacing: 0.5px; }
+
+/* Animated Arrow Button */
+.btn-arrow {
+    font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+    border-bottom: 1px solid var(--text-main); padding-bottom: 4px;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.3s var(--ease-editorial);
+}
+
+.btn-arrow i {
+    transition: transform 0.3s var(--ease-editorial);
 }
 
 .btn-arrow:hover {
-    padding-right: 8px;
-}
-
-/* --- Structural Interior Labels --- */
-.box-label {
-    padding: 15px 40px;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
-    border-bottom: 1px solid var(--line-color);
+    gap: 15px;
     color: var(--text-sub);
+    border-color: var(--text-sub);
 }
 
-/* --- About Tab Box --- */
-.about-content {
-    padding: 80px 40px;
-    max-width: 1000px;
+.btn-arrow:hover i {
+    transform: translateX(4px);
 }
 
-.about-content p {
-    font-family: var(--font-serif);
-    font-size: 1.7rem;
-    line-height: 1.5;
-}
+/* --- Layout Elements --- */
+.box-label { padding: 15px 40px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; border-bottom: 1px solid var(--line-color); color: var(--text-sub); }
+.about-content { padding: 80px 40px; max-width: 1000px; }
+.about-content p { font-family: var(--font-serif); font-size: 1.7rem; line-height: 1.5; }
 
-/* --- Skills Tab Box Grid --- */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
+/* --- Grids & Hover Blooms --- */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
 .skill-cell {
-    padding: 40px;
-    border-right: 1px solid var(--line-color);
-    border-bottom: 1px solid var(--line-color);
-    background-color: transparent; /* inherits the custom section tint */
+    padding: 40px; border-right: 1px solid var(--line-color); border-bottom: 1px solid var(--line-color);
+    transition: background-color 0.4s ease, transform 0.4s var(--ease-editorial), box-shadow 0.4s var(--ease-editorial);
+}
+.skills-grid .skill-cell:last-child { border-right: none; }
+
+.skill-cell:hover {
+    background-color: #FFFFFF;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(56, 33, 25, 0.08);
+    z-index: 2;
+    position: relative;
 }
 
-.skills-grid .skill-cell:last-child {
-    border-right: none;
-}
+.cell-num { display: block; font-size: 0.75rem; color: var(--text-sub); font-weight: 600; margin-bottom: 25px; }
+.skill-cell h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 10px; }
+.skill-cell p { font-size: 0.85rem; color: var(--text-sub); }
 
-.cell-num {
-    display: block;
-    font-size: 0.75rem;
-    color: var(--text-sub);
-    font-weight: 600;
-    margin-bottom: 25px;
-}
-
-.skill-cell h3 {
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.skill-cell p {
-    font-size: 0.85rem;
-    color: var(--text-sub);
-}
-
-/* --- Activities Tab Box Grid --- */
-.activities-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
+.activities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 .activity-card {
-    padding: 45px 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 340px;
-    border-right: 1px solid var(--line-color);
-    border-bottom: 1px solid var(--line-color);
+    padding: 45px 40px; display: flex; flex-direction: column; justify-content: space-between; min-height: 340px;
+    border-right: 1px solid var(--line-color); border-bottom: 1px solid var(--line-color);
+    transition: background-color 0.4s ease, transform 0.4s var(--ease-editorial), box-shadow 0.4s var(--ease-editorial);
+}
+.activities-grid .activity-card:last-child { border-right: none; }
+
+.active-card { background-color: var(--color-cream); }
+.pending-card { background-color: transparent; opacity: 0.65; }
+
+.active-card:hover {
+    background-color: #FFFFFF;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(56, 33, 25, 0.08);
+    z-index: 2;
+    position: relative;
 }
 
-.activities-grid .activity-card:last-child {
-    border-right: none;
+.card-meta { display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 600; color: var(--text-sub); }
+.status-indicator { text-transform: uppercase; font-size: 0.7rem; border: 1px solid var(--line-color); padding: 2px 8px; border-radius: 12px; }
+.card-body h3 { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 400; margin-top: 25px; margin-bottom: 12px; }
+.card-body p { font-size: 0.85rem; color: var(--text-sub); line-height: 1.6; margin-bottom: 30px; }
+.card-action { font-size: 0.8rem; font-weight: 600; border-bottom: 1px solid var(--text-main); align-self: flex-start; padding-bottom: 2px; transition: 0.3s; }
+.card-action:hover { color: var(--text-sub); border-color: var(--text-sub); letter-spacing: 1px; }
+.card-action-disabled { font-size: 0.8rem; color: var(--text-sub); font-style: italic; }
+
+/* --- Contact & Footer --- */
+.contact-split { padding: 80px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.contact-split h3 { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 400; line-height: 1.4; }
+.contact-links { display: flex; gap: 30px; }
+.link-item { font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid var(--text-main); padding-bottom: 4px; transition: 0.3s; }
+.link-item:hover { color: var(--text-sub); border-color: var(--text-sub); padding-bottom: 8px; }
+.footer-box { display: flex; justify-content: space-between; padding: 30px 40px; font-size: 0.75rem; color: var(--text-sub); text-transform: uppercase; letter-spacing: 1px; background-color: var(--color-cream); }
+
+/* =========================================
+   SCROLL REVEAL ANIMATIONS (The Magic) 
+   ========================================= */
+
+/* Reveal Slide Up */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s var(--ease-editorial), transform 0.8s var(--ease-editorial);
 }
 
-/* Inner popout background contrast for the active card */
-.active-card {
-    background-color: var(--color-cream);
+/* Elegant Text Wipe (Clip Path) */
+.reveal-wipe {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: clip-path 1.2s var(--ease-editorial), opacity 1.2s ease, transform 1.2s var(--ease-editorial);
 }
 
-.pending-card {
-    background-color: transparent;
-    opacity: 0.65;
+/* When Javascript adds the .is-visible class */
+.reveal-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.card-meta {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--text-sub);
+.reveal-wipe.is-visible {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.status-indicator {
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    border: 1px solid var(--line-color);
-    padding: 2px 8px;
-    border-radius: 12px;
-}
+/* Delays and Staggers for smooth loading sequences */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
 
-.card-body h3 {
-    font-family: var(--font-serif);
-    font-size: 1.4rem;
-    font-weight: 400;
-    margin-top: 25px;
-    margin-bottom: 12px;
-}
+.stagger-1.is-visible { transition-delay: 0.1s; }
+.stagger-2.is-visible { transition-delay: 0.25s; }
+.stagger-3.is-visible { transition-delay: 0.4s; }
+.stagger-4.is-visible { transition-delay: 0.55s; }
 
-.card-body p {
-    font-size: 0.85rem;
-    color: var(--text-sub);
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-.card-action {
-    font-size: 0.8rem;
-    font-weight: 600;
-    border-bottom: 1px solid var(--text-main);
-    align-self: flex-start;
-    padding-bottom: 2px;
-}
-
-.card-action-disabled {
-    font-size: 0.8rem;
-    color: var(--text-sub);
-    font-style: italic;
-}
-
-/* --- Contact Tab Box Split --- */
-.contact-split {
-    padding: 80px 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-}
-
-.contact-split h3 {
-    font-family: var(--font-serif);
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 1.4;
-}
-
-.contact-links {
-    display: flex;
-    gap: 30px;
-}
-
-.link-item {
-    font-size: 0.9rem;
-    font-weight: 600;
-    border-bottom: 1px solid var(--text-main);
-    padding-bottom: 4px;
-}
-
-/* --- Boxed Editorial Footer --- */
-.footer-box {
-    display: flex;
-    justify-content: space-between;
-    padding: 30px 40px;
-    font-size: 0.75rem;
-    color: var(--text-sub);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    background-color: var(--color-cream); /* grounds the base of the page layout wrapper */
-}
-
-/* --- Responsive Rules --- */
+/* --- Mobile Fixes --- */
 @media (max-width: 900px) {
     body { padding: 10px; }
     .hero-box h1 { font-size: 2.3rem; }
     .about-content p { font-size: 1.3rem; }
     .contact-split { grid-template-columns: 1fr; gap: 30px; }
-    
-    .skills-grid .skill-cell, 
-    .activities-grid .activity-card {
-        border-right: none;
-    }
+    .skills-grid .skill-cell, .activities-grid .activity-card { border-right: none; }
 }
 
 @media (max-width: 768px) {
     .hamburger { display: block; }
-    .nav-links {
-        position: absolute;
-        top: 71px;
-        left: -101%;
-        flex-direction: column;
-        background-color: var(--color-cream);
-        width: 102%;
-        text-align: center;
-        padding: 30px 0;
-        gap: 20px;
-        border-bottom: 1px solid var(--line-color);
-        border-left: 1px solid var(--line-color);
-        transition: 0.3s ease;
-    }
+    .nav-links { position: absolute; top: 71px; left: -101%; flex-direction: column; background-color: var(--color-cream); width: 102%; text-align: center; padding: 30px 0; gap: 20px; border-bottom: 1px solid var(--line-color); border-left: 1px solid var(--line-color); transition: 0.3s ease; }
     .nav-links.active { left: -1px; }
 }
