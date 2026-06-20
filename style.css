@@ -1,15 +1,15 @@
 /* --- Premium Architectural Layout System --- */
 :root {
-    --line-color: #1F2421;      /* Deep Forest Obsidian for crisp architectural borders */
+    --line-color: #1C2D27;      /* Deep Ivy Green for sharp, lively frames */
     
-    /* Tone Spectrum */
-    --color-cream: #FDFBF7;     /* Soft Linen White (Hero & Skills) */
-    --color-beige: #EAECE6;     /* Light Eucalyptus Sage Tint (About) */
-    --color-oatmeal: #D8DDD2;   /* Premium Mossy Sage Gray (Activities) */
-    --color-outer: #CAD1C3;     /* Muted Olive-Sage Frame Background */
+    /* Lively Tone Spectrum */
+    --color-cream: #F9FDFB;     /* Fresh Morning Milk (Hero & Skills) */
+    --color-beige: #E6F0EA;     /* Bright Mint Cream Tint (About) */
+    --color-oatmeal: #CDE2D6;   /* Lively Matcha Green (Activities) */
+    --color-outer: #A9CEBB;     /* Vibrant Sage Frame Background */
     
-    --text-main: #1F2421;       /* Deep Slate Charcoal for perfect contrast */
-    --text-sub: #5E6661;        /* Muted Pine Taupe for sub-labels */
+    --text-main: #1C2D27;       /* Rich Deep Ivy for high-contrast text */
+    --text-sub: #4A6358;        /* Forest Pine for sub-labels */
     
     --font-serif: 'Playfair Display', serif;
     --font-sans: 'Plus Jakarta Sans', sans-serif;
