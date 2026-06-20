@@ -3,158 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ana Leah Basco | Portfolio</title>
+    <title>Ana Leah Basco | Portfolio Workspace</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Premium Google Fonts: Playfair Display (Serif) & Plus Jakarta Sans (Sans-Serif) -->
+    <!-- Premium Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome Kit for Minimal Icons -->
+    <!-- Font Awesome Kit -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Minimal Navigation -->
-    <nav class="navbar">
-        <div class="logo">ANA LEAH<span>BASCO</span></div>
-        <ul class="nav-links">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#activities">Activities</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-    </nav>
+    <!-- Boxed Layout Wrapper -->
+    <div class="page-wrapper">
 
-    <!-- Editorial Hero Section -->
-    <header id="hero" class="section hero">
-        <div class="hero-content">
-            <p class="hero-tagline">Initial Webspace / Core Hub</p>
-            <h1>Creating clean digital spaces with <em>purpose</em> and <em>elegance</em>.</h1>
-            <div class="hero-footer">
-                <h2>Ana Leah Basco</h2>
-                <p>Web Development Student & Designer</p>
-                <a href="#activities" class="btn-minimal">Explore Activities <i class="fa-solid fa-arrow-right"></i></a>
+        <!-- Navigation Bar (Boxed) -->
+        <nav class="navbar">
+            <div class="logo">ANA LEAH<span>BASCO</span></div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-        </div>
-    </header>
+        </nav>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="container border-top">
-            <div class="section-layout">
-                <div class="layout-left">
-                    <h2 class="section-title">01 / About Me</h2>
-                </div>
-                <div class="layout-right">
-                    <p class="about-text">
-                        I am a student passionate about building clean, interactive, and beautifully balanced web experiences. This space serves as the foundational core for my web development course—a live archive designed to track my technical growth, code evolution, and future layout implementations.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section skills">
-        <div class="container border-top">
-            <h2 class="section-title">02 / Core Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <span class="skill-num">01</span>
-                    <h3>HTML5</h3>
-                    <p>Semantic document structures</p>
-                </div>
-                <div class="skill-card">
-                    <span class="skill-num">02</span>
-                    <h3>CSS3 Layouts</h3>
-                    <p>Responsive Flexbox & Grid systems</p>
-                </div>
-                <div class="skill-card">
-                    <span class="skill-num">03</span>
-                    <h3>JavaScript</h3>
-                    <p>DOM manipulation & logic fundamentals</p>
-                </div>
-                <div class="skill-card">
-                    <span class="skill-num">04</span>
-                    <h3>Git & Version Control</h3>
-                    <p>Repository tracking & automated deployment</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Future Activities Section -->
-    <section id="activities" class="section activities">
-        <div class="container border-top">
-            <h2 class="section-title">03 / Future Activities</h2>
-            <p class="section-subtitle">A progressive workspace for upcoming laboratory exercises and structural web challenges.</p>
+        <!-- Main Content Area -->
+        <main class="main-content">
             
-            <div class="project-grid">
-                <!-- Activity 1 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <span>Activity 01</span>
-                        <span class="status-tag">Active</span>
-                    </div>
-                    <h3>Personal Profile Space</h3>
-                    <p>Our initial environment layout setup, showcasing Git tracking alignment, responsive architectures, and curated Pinterest aesthetics.</p>
-                    <a href="#hero" class="card-link">Viewing Current Page <i class="fa-solid fa-arrow-turn-up"></i></a>
-                </div>
-
-                <!-- Activity 2 Placeholder -->
-                <div class="project-card pending">
-                    <div class="project-header">
-                        <span>Activity 02</span>
-                        <span class="status-tag">Upcoming</span>
-                    </div>
-                    <h3>Laboratory Exercise Two</h3>
-                    <p>Reserved placeholder for our upcoming development challenge, feature introduction, or advanced style implementation.</p>
-                    <span class="card-link-disabled">Awaiting Assignment</span>
-                </div>
-
-                <!-- Activity 3 Placeholder -->
-                <div class="project-card pending">
-                    <div class="project-header">
-                        <span>Activity 03</span>
-                        <span class="status-tag">Upcoming</span>
-                    </div>
-                    <h3>Laboratory Exercise Three</h3>
-                    <p>Reserved placeholder for dynamic application features, custom interactivity states, or advanced class layouts.</p>
-                    <span class="card-link-disabled">Awaiting Assignment</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container border-top">
-            <div class="section-layout">
-                <div class="layout-left">
-                    <h2 class="section-title">04 / Connect</h2>
-                </div>
-                <div class="layout-right">
-                    <p class="contact-text">Have questions regarding my upcoming coursework assignments or development milestones? Let's connect.</p>
-                    <div class="social-links">
-                        <a href="mailto:your.email@example.com" class="social-item">Email <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        <a href="https://github.com/yourusername" target="_blank" class="social-item">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <!-- Hero Box -->
+            <header id="hero" class="hero-box">
+                <div class="hero-inner">
+                    <p class="tagline">Initial Webspace // Vol. 01</p>
+                    <h1>Creating clean digital spaces with <em>purpose</em> and <em>elegance</em>.</h1>
+                    <div class="hero-details">
+                        <div class="detail-block">
+                            <h2>Ana Leah Basco</h2>
+                            <p>Web Development Student & Designer</p>
+                        </div>
+                        <a href="#activities" class="btn-arrow">Explore Activities <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </header>
 
-    <!-- Minimal Editorial Footer -->
-    <footer class="footer">
-        <div class="container border-top footer-content">
+            <!-- About Split Box -->
+            <section id="about" class="about-box">
+                <div class="box-label">01 / Profile Overview</div>
+                <div class="about-content">
+                    <p>I am a student passionate about building clean, interactive, and beautifully balanced web experiences. This space serves as the foundational core for my web development course—a live, structurally boxed archive designed to track my technical growth, code evolution, and future laboratory layout implementations.</p>
+                </div>
+            </section>
+
+            <!-- Skills Box Grid -->
+            <section id="skills" class="skills-box">
+                <div class="box-label">02 / Technical Stack</div>
+                <div class="skills-grid">
+                    <div class="skill-cell">
+                        <span class="cell-num">01</span>
+                        <h3>HTML5 Architecture</h3>
+                        <p>Semantic document rules</p>
+                    </div>
+                    <div class="skill-cell">
+                        <span class="cell-num">02</span>
+                        <h3>CSS3 Grid & Flex</h3>
+                        <p>Responsive modular layouts</p>
+                    </div>
+                    <div class="skill-cell">
+                        <span class="cell-num">03</span>
+                        <h3>Vanilla JavaScript</h3>
+                        <p>Interactive DOM states</p>
+                    </div>
+                    <div class="skill-cell">
+                        <span class="cell-num">04</span>
+                        <h3>Git & GitHub</h3>
+                        <p>Version control tracking</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Future Activities Grid Boxes -->
+            <section id="activities" class="activities-box">
+                <div class="box-label">03 / Future Class Work</div>
+                <div class="activities-grid">
+                    
+                    <!-- Box 1 (Active) -->
+                    <div class="activity-card active-card">
+                        <div class="card-meta">
+                            <span>LAB 01</span>
+                            <span class="status-indicator">Active</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>Personal Profile Environment</h3>
+                            <p>Setting up our local repository workflows, linking Visual Studio Code, deploying via GitHub Pages, and implementing refined editorial container box styling styles.</p>
+                        </div>
+                        <a href="#hero" class="card-action">Currently Viewing <i class="fa-solid fa-arrow-turn-up"></i></a>
+                    </div>
+
+                    <!-- Box 2 (Pending) -->
+                    <div class="activity-card pending-card">
+                        <div class="card-meta">
+                            <span>LAB 02</span>
+                            <span class="status-indicator muted">Upcoming</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>Laboratory Exercise Two</h3>
+                            <p>Reserved container block for the next scheduled technical layout, advanced scripting exercise, or interactive component structure.</p>
+                        </div>
+                        <span class="card-action-disabled">Awaiting Assignment</span>
+                    </div>
+
+                    <!-- Box 3 (Pending) -->
+                    <div class="activity-card pending-card">
+                        <div class="card-meta">
+                            <span>LAB 03</span>
+                            <span class="status-indicator muted">Upcoming</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>Laboratory Exercise Three</h3>
+                            <p>Reserved container block for complex dynamic behaviors, modular design paradigms, or full application interface elements.</p>
+                        </div>
+                        <span class="card-action-disabled">Awaiting Assignment</span>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Contact Box Split -->
+            <section id="contact" class="contact-box">
+                <div class="box-label">04 / Connectivity</div>
+                <div class="contact-split">
+                    <h3>Have any inquiries regarding my laboratory milestones? Let's open a dialogue.</h3>
+                    <div class="contact-links">
+                        <a href="mailto:your.email@example.com" class="link-item">Email Me <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="https://github.com/yourusername" target="_blank" class="link-item">GitHub Code <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Boxed Footer -->
+        <footer class="footer-box">
             <p>&copy; 2026 Ana Leah Basco.</p>
-            <p>Web Development Initial Environment Portfolio.</p>
-        </div>
-    </footer>
+            <p>Prepared for Web Development Initial Deliverables.</p>
+        </footer>
+
+    </div>
 
     <script src="script.js"></script>
 </body>
