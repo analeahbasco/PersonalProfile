@@ -4,113 +4,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send Email | Ana Leah Basco</title>
-    <link rel="stylesheet" href="style.css">
+    
     <!-- Premium Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Font Awesome Kit -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* Specific layout just for the Email Page */
-        .email-page-wrapper {
+        /* Standalone Design System - Completely Independent from your Main Portfolio */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
             min-height: 100vh;
-            background-color: var(--color-outer, #e6e3dd); /* Fallback if variable is missing */
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            color: #102a43;
+            -webkit-font-smoothing: antialiased;
         }
-        .form-container-page {
+
+        .portal-wrapper {
+            background-color: #ffffff;
+            max-width: 550px;
             width: 100%;
-            max-width: 600px;
             padding: 50px;
-            background-color: var(--color-cream, #f7f5f0);
-            border: 1px solid var(--line-color, #2a2623);
-            box-shadow: 0 15px 50px rgba(42, 38, 35, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(16, 42, 67, 0.08), 0 1px 3px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
         }
-        .back-home-btn {
+
+        /* Decorative Top Accent Line */
+        .portal-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: #102a43;
+        }
+
+        .nav-back {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             text-decoration: none;
-            color: var(--text-sub, #555);
-            font-size: 0.85rem;
+            color: #829ab1;
+            font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
-            transition: color 0.3s ease;
+            letter-spacing: 1.5px;
+            margin-bottom: 40px;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
-        .back-home-btn:hover {
-            color: var(--text-main, #2a2623);
+
+        .nav-back:hover {
+            color: #102a43;
+            transform: translateX(-4px);
         }
-        .email-input, .email-textarea {
+
+        .header-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #102a43;
+        }
+
+        .header-section p {
+            font-size: 0.95rem;
+            color: #627d98;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        .email-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .custom-input {
             width: 100%;
-            padding: 1rem;
-            border: 1px solid var(--line-color, #2a2623);
-            background: #ffffff;
+            padding: 16px;
+            border: 2px solid #e3e8ee;
+            border-radius: 10px;
+            background-color: #f8fbfa;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.95rem;
+            color: #102a43;
+            transition: all 0.3s ease;
             outline: none;
-            transition: border-color 0.3s ease;
         }
-        .email-input:focus, .email-textarea:focus {
-            border-color: #000;
+
+        .custom-input::placeholder {
+            color: #9fb3c8;
         }
-        .email-submit-btn {
-            padding: 1rem 2.5rem;
-            background-color: var(--text-main, #2a2623);
-            color: var(--color-cream, #f7f5f0);
+
+        .custom-input:focus {
+            background-color: #ffffff;
+            border-color: #102a43;
+            box-shadow: 0 4px 12px rgba(16, 42, 67, 0.05);
+        }
+
+        textarea.custom-input {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .submit-btn {
+            margin-top: 10px;
+            padding: 16px 30px;
+            background-color: #102a43;
+            color: #ffffff;
             border: none;
-            font-weight: 600;
-            cursor: pointer;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            transition: opacity 0.2s, transform 0.2s;
+            border-radius: 10px;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .email-submit-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
+
+        .submit-btn:hover {
+            background-color: #243b53;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(16, 42, 67, 0.15);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .portal-wrapper {
+                padding: 30px 20px;
+            }
+            .header-section h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="email-page-wrapper">
+    <div class="portal-wrapper">
         
-        <div class="form-container-page">
-            <!-- Navigation Back Link -->
-            <a href="index.html" class="back-home-btn">
-                <i class="fa-solid fa-arrow-left"></i> Back to Workspace
-            </a>
+        <!-- Navigation Back Link -->
+        <a href="index.html" class="nav-back">
+            <i class="fa-solid fa-arrow-left"></i> Return to Portfolio
+        </a>
 
-            <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; margin-bottom: 10px; color: var(--text-main, #2a2623);">Direct Message</h1>
-            <p style="font-size: 0.9rem; color: var(--text-sub, #555); margin-bottom: 40px; font-family: 'Plus Jakarta Sans', sans-serif;">Fill out the form below and your message will be sent straight to my inbox.</p>
-            
-            <!-- Standard Architecture Form Integration -->
-            <form action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
-                <!-- Web3Forms Access Key Embedded Here -->
-                <input type="hidden" name="access_key" value="b5ceaec5-915e-4bc6-b39a-1ff9c805ea1f">
-                <input type="checkbox" name="botcheck" style="display: none;">
-                <!-- This redirects them back to your main portfolio after sending -->
-                <input type="hidden" name="redirect" value="https://nngn12.github.io/">
-
-                <div>
-                    <input type="text" name="name" placeholder="Your Name" required class="email-input">
-                </div>
-                <div>
-                    <input type="email" name="email" placeholder="Your Email Address" required class="email-input">
-                </div>
-                <div>
-                    <textarea name="message" rows="6" placeholder="Write your message here..." required class="email-textarea" style="resize: vertical;"></textarea>
-                </div>
-                
-                <button type="submit" class="email-submit-btn" style="align-self: flex-start;">
-                    <i class="fa-solid fa-paper-plane" style="margin-right: 5px;"></i> Send Message
-                </button>
-            </form>
+        <div class="header-section">
+            <h1>Direct Message</h1>
+            <p>Skip the email app. Fill out the secure form below and your message will be routed directly to my inbox.</p>
         </div>
+        
+        <!-- Standard Architecture Form Integration -->
+        <form action="https://api.web3forms.com/submit" method="POST" class="email-form">
+            <!-- Web3Forms Access Key Embedded Here -->
+            <input type="hidden" name="access_key" value="b5ceaec5-915e-4bc6-b39a-1ff9c805ea1f">
+            <input type="checkbox" name="botcheck" style="display: none;">
+            <!-- This redirects them back to your main portfolio after sending -->
+            <input type="hidden" name="redirect" value="https://nngn12.github.io/">
+
+            <div class="input-group">
+                <input type="text" name="name" placeholder="Full Name" required class="custom-input">
+            </div>
+            
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Email Address" required class="custom-input">
+            </div>
+            
+            <div class="input-group">
+                <textarea name="message" placeholder="Type your message here..." required class="custom-input"></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+                Send Message <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </form>
 
     </div>
 
