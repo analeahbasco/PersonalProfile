@@ -6,17 +6,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.querySelector(".hamburger");
     const navLinks = document.querySelector(".nav-links");
 
-    hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navLinks.classList.toggle("active");
-    });
-
-    document.querySelectorAll(".nav-links li a").forEach(link => {
-        link.addEventListener("click", () => {
-            hamburger.classList.remove("active");
-            navLinks.classList.remove("active");
+    if (hamburger && navLinks) {
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
         });
-    });
+
+        document.querySelectorAll(".nav-links li a").forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navLinks.classList.remove("active");
+            });
+        });
+    }
 
     /* =========================================
        2. Scroll Reveal Intersection Observer
@@ -65,6 +67,35 @@ document.addEventListener("DOMContentLoaded", () => {
         
         magneticWrap.addEventListener('mouseenter', () => {
             magneticBtn.style.transition = 'none';
+        });
+    }
+
+    /* =========================================
+       4. Email Modal Popup Engine (Fixed & Unified)
+       ========================================= */
+    const emailTrigger = document.getElementById('emailTrigger');
+    const chatModal = document.getElementById('chatModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    // Safe Check: Ensures errors don't throw if elements are missing on different pages
+    if (emailTrigger && chatModal && closeModalBtn) {
+        
+        // Display form window when clicking "Email Me"
+        emailTrigger.addEventListener('click', function(event) {
+            event.preventDefault(); // Blocks the browser page jump behavior
+            chatModal.classList.add('is-active');
+        });
+
+        // Close window when clicking the 'X' button
+        closeModalBtn.addEventListener('click', function() {
+            chatModal.classList.remove('is-active');
+        });
+
+        // Close window if user clicks outside of the active form box background wrapper
+        window.addEventListener('click', function(event) {
+            if (event.target === chatModal) {
+                chatModal.classList.remove('is-active');
+            }
         });
     }
 });
