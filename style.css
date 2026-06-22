@@ -214,7 +214,7 @@ body {
     line-height: 1.5;
 }
 
-/* --- New Gallery Section Grid --- */
+/* --- Gallery Section Grid CSS --- */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -224,20 +224,21 @@ body {
     padding: 40px;
     border-right: 1px solid var(--line-color);
     border-bottom: 1px solid var(--line-color);
-    transition: transform 0.4s ease;
-}
-
-.gallery-item:hover {
-    transform: translateY(-4px);
+    transition: transform 0.4s ease, background-color 0.4s ease;
 }
 
 .gallery-grid .gallery-item:last-child {
     border-right: none;
 }
 
+.gallery-item:hover {
+    transform: translateY(-4px);
+    background-color: #ffffff;
+}
+
 .image-frame {
     width: 100%;
-    height: 240px;
+    height: 250px;
     overflow: hidden;
     border: 1px solid var(--line-color);
     margin-bottom: 20px;
@@ -247,11 +248,11 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.3, 1);
 }
 
 .gallery-item:hover .image-frame img {
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
 
 .gallery-info h4 {
@@ -264,7 +265,7 @@ body {
 .gallery-info p {
     font-size: 0.85rem;
     color: var(--text-sub);
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 /* --- Skills Tab Box Grid --- */
@@ -402,7 +403,7 @@ body {
     font-style: italic;
 }
 
-/* --- New Certificates Section Structural Style --- */
+/* --- Certificates Section Structure --- */
 .certificates-list {
     display: flex;
     flex-direction: column;
@@ -413,39 +414,44 @@ body {
     border-bottom: 1px solid var(--line-color);
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
+    transition: background-color 0.3s ease;
 }
 
 .certificates-list .certificate-row:last-child {
     border-bottom: none;
 }
 
-.cert-meta {
-    display: flex;
-    align-items: center;
-    gap: 30px;
+.certificate-row:hover {
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
-.cert-year {
-    font-size: 0.8rem;
+.cert-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.cert-tag {
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--text-sub);
     border: 1px solid var(--line-color);
-    padding: 3px 12px;
+    padding: 2px 10px;
     border-radius: 4px;
 }
 
 .certificate-row h4 {
     font-family: var(--font-serif);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 400;
 }
 
 .certificate-row p {
     font-size: 0.9rem;
     color: var(--text-sub);
-    max-width: 800px;
-    line-height: 1.5;
+    max-width: 850px;
+    line-height: 1.6;
 }
 
 /* --- Contact Tab Box Split --- */
@@ -467,7 +473,7 @@ body {
 .contact-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px 30px;
+    gap: 20px 30px;
 }
 
 .link-item {
@@ -481,6 +487,10 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+}
+
+.link-item i {
+    font-size: 0.95rem;
 }
 
 .link-item:hover {
@@ -501,7 +511,7 @@ body {
     background-color: var(--color-cream);
 }
 
-/* --- Premium Reveal Animation Engine Properties --- */
+/* --- Premium Scroll Reveal Animation Engine --- */
 .reveal-up { 
     opacity: 0; 
     transform: translateY(40px); 
