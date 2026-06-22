@@ -80,11 +80,11 @@ body {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 35px;
+    gap: 25px;
 }
 
 .nav-links li a {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -108,7 +108,7 @@ body {
     height: 2px;
     margin: 4px auto;
     background-color: var(--text-main);
-    transition: all 0.3s ease-in-out; /* Added for mobile menu animation */
+    transition: all 0.3s ease-in-out;
 }
 
 /* --- Home Tab Box --- */
@@ -214,6 +214,59 @@ body {
     line-height: 1.5;
 }
 
+/* --- New Gallery Section Grid --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.gallery-item {
+    padding: 40px;
+    border-right: 1px solid var(--line-color);
+    border-bottom: 1px solid var(--line-color);
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-4px);
+}
+
+.gallery-grid .gallery-item:last-child {
+    border-right: none;
+}
+
+.image-frame {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    border: 1px solid var(--line-color);
+    margin-bottom: 20px;
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .image-frame img {
+    transform: scale(1.05);
+}
+
+.gallery-info h4 {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.gallery-info p {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+}
+
 /* --- Skills Tab Box Grid --- */
 .skills-grid {
     display: grid;
@@ -224,8 +277,8 @@ body {
     padding: 40px;
     border-right: 1px solid var(--line-color);
     border-bottom: 1px solid var(--line-color);
-    background-color: transparent; /* inherits the custom section tint */
-    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease; /* Added Hover Transition */
+    background-color: transparent;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
 }
 
 .skill-cell:hover {
@@ -273,14 +326,13 @@ body {
     min-height: 340px;
     border-right: 1px solid var(--line-color);
     border-bottom: 1px solid var(--line-color);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease; /* Added Hover Transition */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
 }
 
 .activities-grid .activity-card:last-child {
     border-right: none;
 }
 
-/* Inner popout background contrast for the active card */
 .active-card {
     background-color: var(--color-cream);
 }
@@ -350,6 +402,52 @@ body {
     font-style: italic;
 }
 
+/* --- New Certificates Section Structural Style --- */
+.certificates-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.certificate-row {
+    padding: 40px;
+    border-bottom: 1px solid var(--line-color);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.certificates-list .certificate-row:last-child {
+    border-bottom: none;
+}
+
+.cert-meta {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.cert-year {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-sub);
+    border: 1px solid var(--line-color);
+    padding: 3px 12px;
+    border-radius: 4px;
+}
+
+.certificate-row h4 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.certificate-row p {
+    font-size: 0.9rem;
+    color: var(--text-sub);
+    max-width: 800px;
+    line-height: 1.5;
+}
+
 /* --- Contact Tab Box Split --- */
 .contact-split {
     padding: 80px 40px;
@@ -368,7 +466,8 @@ body {
 
 .contact-links {
     display: flex;
-    gap: 30px;
+    flex-wrap: wrap;
+    gap: 25px 30px;
 }
 
 .link-item {
@@ -379,6 +478,9 @@ body {
     text-decoration: none;
     color: var(--text-main);
     transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .link-item:hover {
@@ -396,12 +498,10 @@ body {
     color: var(--text-sub);
     text-transform: uppercase;
     letter-spacing: 1px;
-    background-color: var(--color-cream); /* grounds the base of the page layout wrapper */
+    background-color: var(--color-cream);
 }
 
-/* =========================================
-   NEW PREMIUM SCROLL ANIMATIONS 
-   ========================================= */
+/* --- Premium Reveal Animation Engine Properties --- */
 .reveal-up { 
     opacity: 0; 
     transform: translateY(40px); 
@@ -417,18 +517,15 @@ body {
     transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
-/* Active states toggled by JavaScript */
 .reveal-up.is-visible { opacity: 1; transform: translateY(0); }
 .reveal-fade.is-visible { opacity: 1; }
 .reveal-scale.is-visible { opacity: 1; transform: scale(1) translateY(0); }
 
-/* Staggering delays for grouped elements */
 .stagger-1.is-visible { transition-delay: 0.1s; }
 .stagger-2.is-visible { transition-delay: 0.25s; }
 .stagger-3.is-visible { transition-delay: 0.4s; }
 .stagger-4.is-visible { transition-delay: 0.55s; }
 
-/* Hamburger Open State Animation */
 .hamburger.active .bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
 .hamburger.active .bar:nth-child(2) { opacity: 0; }
 .hamburger.active .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
@@ -441,7 +538,8 @@ body {
     .contact-split { grid-template-columns: 1fr; gap: 30px; }
     
     .skills-grid .skill-cell, 
-    .activities-grid .activity-card {
+    .activities-grid .activity-card,
+    .gallery-grid .gallery-item {
         border-right: none;
     }
 }
