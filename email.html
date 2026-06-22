@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Email | Ana Leah Basco</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Premium Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Kit -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Specific layout just for the Email Page */
+        .email-page-wrapper {
+            min-height: 100vh;
+            background-color: var(--color-outer, #e6e3dd); /* Fallback if variable is missing */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .form-container-page {
+            width: 100%;
+            max-width: 600px;
+            padding: 50px;
+            background-color: var(--color-cream, #f7f5f0);
+            border: 1px solid var(--line-color, #2a2623);
+            box-shadow: 0 15px 50px rgba(42, 38, 35, 0.08);
+        }
+        .back-home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--text-sub, #555);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            transition: color 0.3s ease;
+        }
+        .back-home-btn:hover {
+            color: var(--text-main, #2a2623);
+        }
+        .email-input, .email-textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--line-color, #2a2623);
+            background: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .email-input:focus, .email-textarea:focus {
+            border-color: #000;
+        }
+        .email-submit-btn {
+            padding: 1rem 2.5rem;
+            background-color: var(--text-main, #2a2623);
+            color: var(--color-cream, #f7f5f0);
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: opacity 0.2s, transform 0.2s;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .email-submit-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="email-page-wrapper">
+        
+        <div class="form-container-page">
+            <!-- Navigation Back Link -->
+            <a href="index.html" class="back-home-btn">
+                <i class="fa-solid fa-arrow-left"></i> Back to Workspace
+            </a>
+
+            <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; margin-bottom: 10px; color: var(--text-main, #2a2623);">Direct Message</h1>
+            <p style="font-size: 0.9rem; color: var(--text-sub, #555); margin-bottom: 40px; font-family: 'Plus Jakarta Sans', sans-serif;">Fill out the form below and your message will be sent straight to my inbox.</p>
+            
+            <!-- Standard Architecture Form Integration -->
+            <form action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- Web3Forms Access Key Embedded Here -->
+                <input type="hidden" name="access_key" value="b5ceaec5-915e-4bc6-b39a-1ff9c805ea1f">
+                <input type="checkbox" name="botcheck" style="display: none;">
+                <!-- This redirects them back to your main portfolio after sending -->
+                <input type="hidden" name="redirect" value="https://nngn12.github.io/">
+
+                <div>
+                    <input type="text" name="name" placeholder="Your Name" required class="email-input">
+                </div>
+                <div>
+                    <input type="email" name="email" placeholder="Your Email Address" required class="email-input">
+                </div>
+                <div>
+                    <textarea name="message" rows="6" placeholder="Write your message here..." required class="email-textarea" style="resize: vertical;"></textarea>
+                </div>
+                
+                <button type="submit" class="email-submit-btn" style="align-self: flex-start;">
+                    <i class="fa-solid fa-paper-plane" style="margin-right: 5px;"></i> Send Message
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>
