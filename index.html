@@ -197,36 +197,7 @@
     </div>
 </section>
 
-<!-- The Pop-up Overlay (Hidden by default) -->
-<div id="chatModal" class="modal-overlay">
-    <div class="modal-content-box">
-        <!-- Close Window Button Button -->
-        <button id="closeModalBtn" class="modal-close-btn">&times;</button>
-        
-        <h4 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 0.5rem;">Send a Message</h4>
-        <p style="font-size: 0.85rem; color: var(--text-sub); margin-bottom: 1.5rem;">Drop a line here anytime and it will go directly to my inbox.</p>
-        
-        <form action="https://api.web3forms.com/submit" method="POST" class="modal-chat-form">
-            <!-- Put your Web3Forms access key here -->
-            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
-            <input type="checkbox" name="botcheck" style="display: none;">
-            <input type="hidden" name="redirect" value="https://nngn12.github.io/">
 
-            <div class="modal-form-group">
-                <input type="text" name="name" placeholder="Your Name" required class="modal-input">
-            </div>
-            <div class="modal-form-group">
-                <input type="email" name="email" placeholder="Your Email Address" required class="modal-input">
-            </div>
-            <div class="modal-form-group">
-                <textarea name="message" rows="5" placeholder="Write whatever you want here..." required class="modal-input modal-textarea"></textarea>
-            </div>
-            <button type="submit" class="modal-submit-btn">
-                <i class="fa-solid fa-paper-plane"></i> Send Message
-            </button>
-        </form>
-    </div>
-</div>
 
         </main>
 
