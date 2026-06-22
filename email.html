@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Standalone Design System - Completely Independent from your Main Portfolio */
+        /* Standalone Design System */
         * {
             margin: 0;
             padding: 0;
@@ -153,23 +153,12 @@
         .submit-btn:active {
             transform: translateY(0);
         }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .portal-wrapper {
-                padding: 30px 20px;
-            }
-            .header-section h1 {
-                font-size: 2rem;
-            }
-        }
     </style>
 </head>
 <body>
 
     <div class="portal-wrapper">
         
-        <!-- Navigation Back Link -->
         <a href="index.html" class="nav-back">
             <i class="fa-solid fa-arrow-left"></i> Return to Portfolio
         </a>
@@ -179,20 +168,17 @@
             <p>Skip the email app. Fill out the secure form below and your message will be routed directly to my inbox.</p>
         </div>
         
-        <!-- Standard Architecture Form Integration -->
-        <form action="https://api.web3forms.com/submit" method="POST" class="email-form">
-            <!-- Web3Forms Access Key Embedded Securely -->
-            <input type="hidden" name="access_key" value="b5ceaec5-915e-4bc6-b39a-1ff9c805ea1f">
-            <input type="checkbox" name="botcheck" style="display: none;">
-            <!-- Redirects them back to your main portfolio after sending -->
-            <input type="hidden" name="redirect" value="https://nngn12.github.io/">
-
+        <!-- Formspree Integration (Industry Standard, Spam-proof) -->
+        <!-- Paste your endpoint URL inside the action="..." -->
+        <form action="https://formspree.io/f/mqevkkbe" method="POST" class="email-form">
+            
             <div class="input-group">
                 <input type="text" name="name" placeholder="Full Name" required class="custom-input">
             </div>
             
             <div class="input-group">
-                <input type="email" name="email" placeholder="Email Address" required class="custom-input">
+                <!-- name="_replyto" tells Formspree who to reply to when you hit "Reply" in Gmail -->
+                <input type="email" name="_replyto" placeholder="Email Address" required class="custom-input">
             </div>
             
             <div class="input-group">
