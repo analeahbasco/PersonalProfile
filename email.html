@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send Email | Ana Leah Basco</title>
-    
+
     <!-- Premium Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome Kit -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         /* Standalone Design System */
         * {
@@ -36,7 +39,7 @@
             width: 100%;
             padding: 50px;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(16, 42, 67, 0.08), 0 1px 3px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 40px rgba(16, 42, 67, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
         }
@@ -165,15 +168,23 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div class="portal-wrapper">
-        
+
         <a href="index.html" class="nav-back">
             <i class="fa-solid fa-arrow-left"></i> Return to Portfolio
         </a>
@@ -182,24 +193,26 @@
         <div id="form-container">
             <div class="header-section">
                 <h1>Direct Message</h1>
-                <p>Skip the email app. Fill out the secure form below and your message will be routed directly to my inbox.</p>
+                <p>Skip the email app. Fill out the secure form below and your message will be routed directly to my
+                    inbox.</p>
             </div>
-            
+
             <!-- Change ONLY the 'YOUR_FORM_ID' text inside the action link below -->
             <form id="email-form" action="https://formspree.io/f/mqevkkbe" method="POST" class="email-form">
-                
+
                 <div class="input-group">
                     <input type="text" name="name" placeholder="Full Name" required class="custom-input">
                 </div>
-                
+
                 <div class="input-group">
                     <input type="email" name="_replyto" placeholder="Email Address" required class="custom-input">
                 </div>
-                
+
                 <div class="input-group">
-                    <textarea name="message" placeholder="Type your message here..." required class="custom-input"></textarea>
+                    <textarea name="message" placeholder="Type your message here..." required
+                        class="custom-input"></textarea>
                 </div>
-                
+
                 <button type="submit" id="submit-btn" class="submit-btn">
                     Send Message <i class="fa-solid fa-paper-plane"></i>
                 </button>
@@ -211,8 +224,10 @@
             <div class="success-icon">
                 <i class="fa-solid fa-circle-check"></i>
             </div>
-            <h1 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 10px;">Message Sent!</h1>
-            <p style="color: #627d98; line-height: 1.6; margin-bottom: 30px;">Thank you for reaching out. Your email was successfully transmitted directly to my inbox, and I will get back to you shortly.</p>
+            <h1 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 10px;">Message Sent!
+            </h1>
+            <p style="color: #627d98; line-height: 1.6; margin-bottom: 30px;">Thank you for reaching out. Your email was
+                successfully transmitted directly to my inbox, and I will get back to you shortly.</p>
             <a href="index.html" class="submit-btn" style="text-decoration: none;">Back to Workspace</a>
         </div>
 
@@ -225,15 +240,15 @@
         const successContainer = document.getElementById("success-container");
         const submitBtn = document.getElementById("submit-btn");
 
-        form.addEventListener("submit", async function(event) {
+        form.addEventListener("submit", async function (event) {
             event.preventDefault(); // Completely blocks the browser from changing pages/redirecting
-            
+
             submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
             submitBtn.style.opacity = '0.7';
             submitBtn.style.pointerEvents = 'none';
 
             const data = new FormData(event.target);
-            
+
             try {
                 const response = await fetch(event.target.action, {
                     method: form.method,
@@ -242,7 +257,7 @@
                         'Accept': 'application/json'
                     }
                 });
-                
+
                 if (response.ok) {
                     // Instantly hide the form inputs and show the elegant Success Card
                     formContainer.style.display = "none";
@@ -265,4 +280,5 @@
     </script>
 
 </body>
+
 </html>

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
+
     /* =========================================
        1. Mobile Hamburger Menu Toggle
        ========================================= */
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         rootMargin: "0px 0px -20px 0px"
     };
 
-    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+    const revealOnScroll = new IntersectionObserver(function (entries, observer) {
         entries.forEach(entry => {
             if (!entry.isIntersecting) {
                 return;
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const position = magneticWrap.getBoundingClientRect();
             const x = e.clientX - position.left - position.width / 2;
             const y = e.clientY - position.top - position.height / 2;
-            
+
             magneticBtn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
         });
 
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
             magneticBtn.style.transform = 'translate(0px, 0px)';
             magneticBtn.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.3, 1)';
         });
-        
+
         magneticWrap.addEventListener('mouseenter', () => {
             magneticBtn.style.transition = 'none';
         });
@@ -79,20 +79,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Safe Check: Ensures errors don't throw if elements are missing on different pages
     if (emailTrigger && chatModal && closeModalBtn) {
-        
+
         // Display form window when clicking "Email Me"
-        emailTrigger.addEventListener('click', function(event) {
+        emailTrigger.addEventListener('click', function (event) {
             event.preventDefault(); // Blocks the browser page jump behavior
             chatModal.classList.add('is-active');
         });
 
         // Close window when clicking the 'X' button
-        closeModalBtn.addEventListener('click', function() {
+        closeModalBtn.addEventListener('click', function () {
             chatModal.classList.remove('is-active');
         });
 
         // Close window if user clicks outside of the active form box background wrapper
-        window.addEventListener('click', function(event) {
+        window.addEventListener('click', function (event) {
             if (event.target === chatModal) {
                 chatModal.classList.remove('is-active');
             }
