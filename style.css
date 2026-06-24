@@ -436,21 +436,53 @@ body {
     gap: 60px;
 }
 
-.certificate-row {
+/* --- Certificates Grouped Card Box --- */
+.certificate-card {
     width: 100%;
-    max-width: 800px;
+    max-width: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    text-align: center;
     padding: 30px;
-    transition: transform 0.4s ease, background-color 0.4s ease;
+    background-color: transparent;
+    border: 1px solid var(--line-color);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
 }
 
-.certificate-row:hover {
-    background-color: rgba(255, 255, 255, 0.6);
-    transform: scale(1.01);
-    border-radius: 6px;
+.certificate-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    background-color: #ffffff;
+    box-shadow: 0 20px 40px rgba(28, 45, 39, 0.06);
+    border-radius: 4px;
+}
+
+.certificate-card .image-frame {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line-color);
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.certificate-card .image-frame img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.3, 1);
+}
+
+.certificate-card:hover .image-frame img {
+    transform: scale(1.05);
+    /* Slight zoom on the certificate image on hover */
+}
+
+.certificate-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .cert-header {
@@ -470,17 +502,17 @@ body {
     display: inline-block;
 }
 
-.certificate-row h4 {
+.certificate-info h4 {
     font-family: var(--font-serif);
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 400;
 }
 
-.cert-desc {
+.certificate-info .cert-desc {
     font-size: 0.95rem;
     color: var(--text-sub);
-    line-height: 1.7;
-    max-width: 650px;
+    line-height: 1.6;
+    max-width: 90%;
 }
 
 /* --- Contact Tab Box Split --- */
@@ -490,7 +522,6 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: start;
-    /* Adjusted to layout properly alongside form boxes */
 }
 
 .contact-split h3 {
@@ -539,7 +570,6 @@ body {
     padding: 2rem;
     border-radius: 8px;
     border: 1px solid var(--line-color);
-    /* Ties nicely back to your design variables */
 }
 
 .form-row-group {
@@ -746,7 +776,6 @@ body {
         width: 100%;
         height: 100%;
         background-color: rgba(28, 45, 39, 0.6);
-        /* Translucent overlay matching your deep ivy green code */
         backdrop-filter: blur(4px);
         display: flex;
         justify-content: center;
@@ -757,7 +786,6 @@ body {
         transition: opacity 0.3s ease;
     }
 
-    /* Class applied by JavaScript to trigger reveal animation */
     .modal-overlay.is-active {
         opacity: 1;
         pointer-events: auto;
