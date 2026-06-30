@@ -1,10 +1,12 @@
 {
   "name": "personalprofile",
-  "version": "1.0.0",
-  "description": "<p align=\"left\"><strong>Front-End Web Development Student & Designer</strong><br><em>Creating clean digital spaces with purpose, structure, and elegance.</em></p>",
-  "main": "script.js",
+  "version": "2.0.0",
+  "description": "Dynamic personal portfolio with Neon Postgres + Cloudinary, deployable on Vercel.",
+  "type": "module",
+  "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "hash-password": "node server/hashPassword.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +29,6 @@
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "multer": "^2.2.0",
-    "multer-storage-cloudinary": "^4.0.0",
-    "path": "^0.12.7"
+    "multer-storage-cloudinary": "^4.0.0"
   }
 }

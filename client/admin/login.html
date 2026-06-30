@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Personal Profile Workspace</title>
+    <link rel="stylesheet" href="/admin/admin.css">
+</head>
+
+<body class="login-body">
+
+    <div class="login-card">
+        <h1>Personal Profile Workspace</h1>
+        <p>Sign in to manage your portfolio</p>
+
+        <form id="loginForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" required autocomplete="username">
+
+            <label for="password">Password</label>
+            <input type="password" id="password" required autocomplete="current-password">
+
+            <button type="submit">Log In</button>
+            <p id="loginError" class="login-error"></p>
+        </form>
+
+        <a href="/" class="back-link">&larr; Back to portfolio</a>
+    </div>
+
+    <script src="/admin/login.js"></script>
+</body>
+
+</html>

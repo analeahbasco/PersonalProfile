@@ -1,30 +1,47 @@
-const express = require('express');
+import express from "express";
+import sql from "./db.js";
+import { requireAuth } from "./middleware/auth.js";
+
 const router = express.Router();
-const pool = require('./db');
 
-// POST route to submit a new message
-router.post('/', async (req, res) => {
+// POST /api/contact — public, called from email.html
+router.post("/", async (req, res) => {
     try {
-        // Extract the data sent from your frontend form
-        const { name, email, message } = req.body;
+        const { name, email, subject, message } = req.body;
+        if (!name || !email || !message) {
+            return res.status(400).json({ success: false, message: "Name, email, and message are required" });
+        }
 
-        const newMsg = await pool.query(
-            'INSERT INTO messages (name, email, message) VALUES ($1, $2, $3) RETURNING *',
-            [name, email, message]
-        );
+        await sql`
+            INSERT INTO messages (name, email, subject, message)
+            VALUES (${name}, ${email}, ${subject || ""}, ${message})
+        `;
 
-        res.json({
-            success: true,
-            message: "Your message has been sent successfully!"
-        });
-
+        res.json({ success: true, message: "Your message has been sent successfully!" });
     } catch (err) {
         console.error("Message submission failed:", err.message);
-        res.status(500).json({
-            success: false,
-            message: 'Server Error'
-        });
+        res.status(500).json({ success: false, message: "Server error" });
     }
 });
 
-module.exports = router;
+// GET /api/contact — admin-only, list messages (newest first)
+router.get("/", requireAuth, async (req, res) => {
+    try {
+        const messages = await sql`SELECT * FROM messages ORDER BY created_at DESC`;
+        res.json({ success: true, data: messages });
+    } catch (err) {
+        res.status(500).json({ success: false, message: "Server error", error: err.message });
+    }
+});
+
+// DELETE /api/contact/:id — admin-only
+router.delete("/:id", requireAuth, async (req, res) => {
+    try {
+        await sql`DELETE FROM messages WHERE id = ${req.params.id}`;
+        res.json({ success: true });
+    } catch (err) {
+        res.status(500).json({ success: false, message: "Server error", error: err.message });
+    }
+});
+
+export default router;

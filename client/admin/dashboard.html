@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Personal Profile Workspace</title>
+    <link rel="stylesheet" href="/admin/admin.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div>
+            <div class="sidebar-brand">
+                <span>Personal Profile Workspace</span>
+                <span class="toggle-btn">&lt;</span>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="profile-avatar">AB</div>
+                <span class="profile-name">Ana Leah Basco</span>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li><a href="/admin/dashboard" class="sidebar-link active">📊 Dashboard</a></li>
+                <li><a href="/admin/gallery" class="sidebar-link">🖼️ Gallery</a></li>
+                <li><a href="/admin/certificates" class="sidebar-link">🏅 Certificates</a></li>
+                <li><a href="/admin/messages" class="sidebar-link">✉️ Messages</a></li>
+            </ul>
+        </div>
+
+        <ul class="sidebar-menu-bottom">
+            <li><a href="/admin/logout" class="sidebar-link">🚪 Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>Dashboard</h1>
+                <p>Overview of your live portfolio content</p>
+            </div>
+        </div>
+
+        <div class="stats-grid" id="statsGrid">
+            <div class="stat-card">
+                <span class="stat-label">Certificates</span>
+                <span class="stat-number" id="statCertificates">—</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Gallery Items</span>
+                <span class="stat-number" id="statGallery">—</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Messages</span>
+                <span class="stat-number" id="statMessages">—</span>
+            </div>
+        </div>
+
+        <div class="list-wrapper" style="margin-top: 24px;">
+            <div class="list-header">
+                <h2>Quick Links</h2>
+                <p>Jump straight into managing your content</p>
+            </div>
+            <div class="quick-links">
+                <a href="/admin/certificates" class="quick-link">🏅 Manage Certificates</a>
+                <a href="/admin/gallery" class="quick-link">🖼️ Manage Gallery</a>
+                <a href="/admin/messages" class="quick-link">✉️ View Messages</a>
+                <a href="/" class="quick-link">🌐 View Live Site</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/admin/guard.js"></script>
+    <script src="/admin/dashboard.js"></script>
+</body>
+
+</html>

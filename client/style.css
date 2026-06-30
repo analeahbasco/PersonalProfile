@@ -841,3 +841,16 @@ body {
         opacity: 0.9;
     }
 }
+/* --- Empty state note for dynamically-loaded sections --- */
+.empty-note {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-sub);
+    font-size: 0.95rem;
+    padding: 40px 0;
+}
+
+.cert-header {
+    flex-wrap: wrap;
+    justify-content: center;
+}

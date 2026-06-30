@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages | Personal Profile Workspace</title>
+    <link rel="stylesheet" href="/admin/admin.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div>
+            <div class="sidebar-brand">
+                <span>Personal Profile Workspace</span>
+                <span class="toggle-btn">&lt;</span>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="profile-avatar">AB</div>
+                <span class="profile-name">Ana Leah Basco</span>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li><a href="/admin/dashboard" class="sidebar-link">📊 Dashboard</a></li>
+                <li><a href="/admin/gallery" class="sidebar-link">🖼️ Gallery</a></li>
+                <li><a href="/admin/certificates" class="sidebar-link">🏅 Certificates</a></li>
+                <li><a href="/admin/messages" class="sidebar-link active">✉️ Messages</a></li>
+            </ul>
+        </div>
+
+        <ul class="sidebar-menu-bottom">
+            <li><a href="/admin/logout" class="sidebar-link">🚪 Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>Messages</h1>
+                <p>Inquiries submitted through your contact form</p>
+            </div>
+        </div>
+
+        <div class="list-wrapper">
+            <div class="list-header">
+                <h2>Inbox</h2>
+                <p id="totalCount">Total: 0 messages</p>
+            </div>
+            <div class="message-list" id="messageContainer"></div>
+        </div>
+    </div>
+
+    <script src="/admin/guard.js"></script>
+    <script src="/admin/message.js"></script>
+</body>
+
+</html>
