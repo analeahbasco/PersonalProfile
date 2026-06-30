@@ -39,7 +39,7 @@ app.get("/admin/login", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/admin/login.html"));
 });
 
-// Protected admin pages (clean, extensionless URLs)
+// Protected admin pages
 app.get("/admin/dashboard", requireAuthPage, (req, res) => {
     res.sendFile(path.join(__dirname, "../client/admin/dashboard.html"));
 });
@@ -61,16 +61,10 @@ app.get("/admin/logout", (req, res) => {
     res.redirect("/admin/login");
 });
 
-// Run a local listener only outside of Vercel's serverless runtime
+// Local listener only outside Vercel
 if (!process.env.VERCEL) {
     const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => console.log(`🚀 Workspace server running at http://localhost:${PORT}`));
+    app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
+}
 
-    if (process.env.NODE_ENV !== 'production') {
-    const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => {
-        console.log(`Server is running on http://localhost:${PORT}`);
-    });
-}
 export default app;
-}
