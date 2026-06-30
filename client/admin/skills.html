@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Workspace</title>
+    <link rel="stylesheet" href="/admin/admin.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div>
+            <div class="sidebar-brand">
+                <span>TheFolio Workspace</span>
+                <span class="toggle-btn">&lt;</span>
+            </div>
+
+            <div class="sidebar-profile">
+                <div class="profile-avatar">AB</div>
+                <span class="profile-name">Ana Leah Basco</span>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li><a href="/admin/dashboard" class="sidebar-link">📊 Dashboard</a></li>
+                <li><a href="/admin/gallery" class="sidebar-link">🖼️ Gallery</a></li>
+                <li><a href="/admin/certificates" class="sidebar-link">🏅 Certificates</a></li>
+                <li><a href="/admin/skills" class="sidebar-link active">🛠️ Skills</a></li>
+                <li><a href="/admin/activities" class="sidebar-link">📌 Activities</a></li>
+                <li><a href="/admin/messages" class="sidebar-link">✉️ Messages</a></li>
+            </ul>
+        </div>
+
+        <ul class="sidebar-menu-bottom">
+            <li><a href="/admin/logout" class="sidebar-link">🚪 Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>Skills</h1>
+                <p>Manage your technical stack section</p>
+            </div>
+            <button id="addSkillBtn">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"></path>
+                </svg>
+                Add Skill
+            </button>
+        </div>
+
+        <div class="list-wrapper">
+            <div class="list-header">
+                <h2>All Skills</h2>
+                <p id="totalCount">Total: 0 skills</p>
+            </div>
+            <div class="certificate-grid" id="skillContainer"></div>
+        </div>
+    </div>
+
+    <div id="skillModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal">&times;</span>
+            <h2 id="modalTitle">Add Skill</h2>
+
+            <form id="skillForm">
+                <label for="name">Skill Name</label>
+                <input type="text" id="name" required placeholder="e.g., HTML & CSS">
+
+                <label for="level">Proficiency Level</label>
+                <select id="level" required>
+                    <option value="Basic">Basic</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                </select>
+
+                <label for="display_order">Display Order (lower shows first)</label>
+                <input type="number" id="display_order" value="0">
+
+                <button type="submit">Save Skill</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/admin/guard.js"></script>
+    <script src="/admin/skills.js"></script>
+</body>
+
+</html>
