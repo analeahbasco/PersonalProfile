@@ -7,6 +7,8 @@ import dotenv from "dotenv";
 
 import certificatesRouter from "./certificates.js";
 import galleryRouter from "./gallery.js";
+import skillsRouter from "./skills.js";
+import activitiesRouter from "./activities.js";
 import adminRouter from "./admin.js";
 import contactRouter from "./contact.js";
 import { requireAuthPage, clearAuthCookie } from "./middleware/auth.js";
@@ -31,6 +33,8 @@ app.use(express.static(path.join(__dirname, "../client")));
 // API routes
 app.use("/api/certificates", certificatesRouter);
 app.use("/api/gallery", galleryRouter);
+app.use("/api/skills", skillsRouter);
+app.use("/api/activities", activitiesRouter);
 app.use("/api/admin", adminRouter);
 app.use("/api/contact", contactRouter);
 
@@ -39,7 +43,7 @@ app.get("/admin/login", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/admin/login.html"));
 });
 
-// Protected admin pages
+// Protected admin pages (clean, extensionless URLs)
 app.get("/admin/dashboard", requireAuthPage, (req, res) => {
     res.sendFile(path.join(__dirname, "../client/admin/dashboard.html"));
 });
@@ -52,6 +56,14 @@ app.get("/admin/certificates", requireAuthPage, (req, res) => {
     res.sendFile(path.join(__dirname, "../client/admin/certificates.html"));
 });
 
+app.get("/admin/skills", requireAuthPage, (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/admin/skills.html"));
+});
+
+app.get("/admin/activities", requireAuthPage, (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/admin/activities.html"));
+});
+
 app.get("/admin/messages", requireAuthPage, (req, res) => {
     res.sendFile(path.join(__dirname, "../client/admin/message.html"));
 });
@@ -61,10 +73,10 @@ app.get("/admin/logout", (req, res) => {
     res.redirect("/admin/login");
 });
 
-// Local listener only outside Vercel
+// Run a local listener only outside of Vercel's serverless runtime
 if (!process.env.VERCEL) {
     const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
+    app.listen(PORT, () => console.log(`🚀 Workspace server running at http://localhost:${PORT}`));
 }
 
 export default app;

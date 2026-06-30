@@ -5,7 +5,6 @@ import { signAdminToken, setAuthCookie, clearAuthCookie, requireAuth } from "./m
 
 const router = express.Router();
 
-// POST /api/admin/login
 router.post("/login", async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -34,22 +33,21 @@ router.post("/login", async (req, res) => {
     }
 });
 
-// POST /api/admin/logout
 router.post("/logout", (req, res) => {
     clearAuthCookie(res);
     res.json({ success: true });
 });
 
-// GET /api/admin/me — lets the frontend check if the session is still valid
 router.get("/me", requireAuth, (req, res) => {
     res.json({ success: true, admin: req.admin });
 });
 
-// GET /api/admin/stats — small dashboard summary
 router.get("/stats", requireAuth, async (req, res) => {
     try {
         const [certs] = await sql`SELECT COUNT(*)::int AS count FROM certificates`;
         const [gallery] = await sql`SELECT COUNT(*)::int AS count FROM gallery`;
+        const [skills] = await sql`SELECT COUNT(*)::int AS count FROM skills`;
+        const [activities] = await sql`SELECT COUNT(*)::int AS count FROM activities`;
         const [messages] = await sql`SELECT COUNT(*)::int AS count FROM messages`;
 
         res.json({
@@ -57,6 +55,8 @@ router.get("/stats", requireAuth, async (req, res) => {
             data: {
                 certificates: certs.count,
                 gallery: gallery.count,
+                skills: skills.count,
+                activities: activities.count,
                 messages: messages.count,
             },
         });

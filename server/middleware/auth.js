@@ -14,7 +14,7 @@ export function setAuthCookie(res, token) {
         httpOnly: true,
         secure: process.env.VERCEL ? true : false,
         sameSite: "lax",
-        maxAge: 8 * 60 * 60 * 1000, // 8 hours
+        maxAge: 8 * 60 * 60 * 1000,
     });
 }
 
@@ -22,7 +22,6 @@ export function clearAuthCookie(res) {
     res.clearCookie(COOKIE_NAME);
 }
 
-// Protects JSON API routes (POST/PUT/DELETE on certificates, gallery, etc.)
 export function requireAuth(req, res, next) {
     const token = req.cookies?.[COOKIE_NAME];
     if (!token) {
@@ -36,7 +35,6 @@ export function requireAuth(req, res, next) {
     }
 }
 
-// Protects server-rendered admin HTML pages — redirects to login instead of returning JSON
 export function requireAuthPage(req, res, next) {
     const token = req.cookies?.[COOKIE_NAME];
     if (!token) {

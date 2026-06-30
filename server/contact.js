@@ -4,7 +4,6 @@ import { requireAuth } from "./middleware/auth.js";
 
 const router = express.Router();
 
-// POST /api/contact — public, called from email.html
 router.post("/", async (req, res) => {
     try {
         const { name, email, subject, message } = req.body;
@@ -24,7 +23,6 @@ router.post("/", async (req, res) => {
     }
 });
 
-// GET /api/contact — admin-only, list messages (newest first)
 router.get("/", requireAuth, async (req, res) => {
     try {
         const messages = await sql`SELECT * FROM messages ORDER BY created_at DESC`;
@@ -34,7 +32,6 @@ router.get("/", requireAuth, async (req, res) => {
     }
 });
 
-// DELETE /api/contact/:id — admin-only
 router.delete("/:id", requireAuth, async (req, res) => {
     try {
         await sql`DELETE FROM messages WHERE id = ${req.params.id}`;
