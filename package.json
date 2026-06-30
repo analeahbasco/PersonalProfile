@@ -2,7 +2,6 @@
   "name": "personalprofile",
   "version": "2.0.1",
   "description": "Dynamic personal portfolio with Neon Postgres + Cloudinary, deployable on Vercel.",
-  "type": "module",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
