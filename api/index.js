@@ -1,11 +1,5 @@
-// --- SERVER START / VERCEL EXPORT ---
-if (process.env.NODE_ENV !== 'production') {
-    // This runs on your local computer
-    const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => {
-        console.log(`Server is running on http://localhost:${PORT}`);
-    });
-}
+// Grab the Express app from your server folder
+const app = require('../server/server.js');
 
-// This is strictly for Vercel
+// Export it for Vercel's serverless environment
 module.exports = app;

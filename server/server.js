@@ -65,6 +65,15 @@ app.get("/admin/logout", (req, res) => {
 if (!process.env.VERCEL) {
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => console.log(`🚀 Workspace server running at http://localhost:${PORT}`));
+
+    if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Server is running on http://localhost:${PORT}`);
+    });
+}
+
+module.exports = app;
 }
 
 export default app;
