@@ -16,12 +16,45 @@ async function fetchMessages() {
 }
 
 function renderMessages(items) {
-    document.getElementById('totalCount').innerText = `Total: ${items.length} messages`;
-
+    const container = document.getElementById('messageContainer');
+    if (!container) return;
+    
+    document.getElementById('totalCount').innerText = `Total: ${items.length}`;
+    
     if (items.length === 0) {
-        messageContainer.innerHTML = `<div class="empty-state"><h3>No messages yet.</h3></div>`;
+        container.innerHTML = `<div class="empty-state"><p>No messages in your inbox.</p></div>`;
         return;
     }
+    
+    container.innerHTML = items.map((msg, index) => `
+        <div class="inbox-card" onclick="viewMessageDetail(${index}, ${JSON.stringify(msg).replace(/"/g, '&quot;')})">
+            <div class="avatar-circle">${msg.name ? msg.name.charAt(0).toUpperCase() : 'U'}</div>
+            <div class="inbox-card-meta">
+                <h4>${escapeHtml(msg.name)}</h4>
+                <p class="subject-line">${escapeHtml(msg.subject || 'No Subject')}</p>
+                <span class="time-stamp">${new Date(msg.created_at || Date.now()).toLocaleDateString()}</span>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Global active view injector
+window.viewMessageDetail = function(index, msg) {
+    const activeView = document.getElementById('activeMessageView');
+    if(!activeView) return;
+    
+    activeView.innerHTML = `
+        <div class="message-view-header">
+            <h2>${escapeHtml(msg.subject || 'No Subject')}</h2>
+            <div class="sender-info">
+                <strong>From:</strong> ${escapeHtml(msg.name)} <span>&lt;${escapeHtml(msg._replyto || msg.email)}&gt;</span>
+            </div>
+        </div>
+        <div class="message-view-body">
+            <p>${escapeHtml(msg.message)}</p>
+        </div>
+    `;
+};
 
     messageContainer.innerHTML = '';
     items.forEach(item => {
@@ -42,7 +75,7 @@ function renderMessages(items) {
             </div>`;
         messageContainer.appendChild(card);
     });
-}
+
 
 async function deleteMessage(id) {
     if (!confirm('Delete this message?')) return;

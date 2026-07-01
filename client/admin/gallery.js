@@ -70,7 +70,6 @@ function renderGallery(items) {
             <div class="card-content">
                 <h2>${item.title}</h2>
                 <p class="category-text">${item.category}</p>
-                <p class="date-text">${readableDate}</p>
                 <p class="description-text">${item.description}</p>
                 <div class="card-buttons">
                     <button class="edit-btn" onclick="openEditModal('${item.id}', '${escapeHtml(item.title)}', '${escapeHtml(item.category)}', '${item.date_completed}', '${escapeHtml(item.description)}')">Edit</button>
@@ -86,7 +85,6 @@ async function handleFormSubmit(e) {
     const formData = new FormData();
     formData.append('title', document.getElementById('title').value);
     formData.append('category', document.getElementById('category').value);
-    formData.append('date_completed', document.getElementById('date').value);
     formData.append('description', document.getElementById('description').value);
 
     const fileInput = document.getElementById('image');
@@ -116,7 +114,6 @@ window.openEditModal = function (id, title, category, date, desc) {
     document.querySelector('.modal-content h2').innerText = 'Edit Gallery Item';
     document.getElementById('title').value = title;
     document.getElementById('category').value = category;
-    document.getElementById('date').value = date ? new Date(date).toISOString().split('T')[0] : '';
     document.getElementById('description').value = desc;
     galleryModal.classList.add('open');
 };

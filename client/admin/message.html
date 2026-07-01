@@ -45,14 +45,22 @@
             </div>
         </div>
 
-        <div class="list-wrapper">
-            <div class="list-header">
-                <h2>Inbox</h2>
-                <p id="totalCount">Total: 0 messages</p>
-            </div>
-            <div class="message-list" id="messageContainer"></div>
+      <div class="inbox-layout">
+    <div class="inbox-sidebar">
+        <div class="list-header">
+            <h2>Conversations</h2>
+            <p id="totalCount">Total: 0 messages</p>
+        </div>
+        <div class="message-list-pane" id="messageContainer"></div>
+    </div>
+
+    <div class="inbox-content-view" id="activeMessageView">
+        <div class="empty-inbox-state">
+            <i class="fa-solid fa-envelope-open-text"></i>
+            <p>Select a message thread from the sidebar list to view conversation content.</p>
         </div>
     </div>
+</div>
 
     <script src="/admin/guard.js"></script>
     <script src="/admin/message.js"></script>

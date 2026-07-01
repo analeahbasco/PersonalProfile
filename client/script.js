@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMobileNav();
     loadGallery();
     loadCertificates();
+    loadSkills();      
+    loadActivities();  
 });
 
 /* --- Scroll-triggered fade/slide-in animations --- */
@@ -113,7 +115,58 @@ async function loadCertificates() {
         container.innerHTML = `<p class="empty-note">Could not load certificates right now.</p>`;
     }
 }
+async function loadSkills() {
+    const container = document.querySelector('.skills-grid');
+    if (!container) return;
+    try {
+        const res = await fetch('/api/skills');
+        const result = await res.json();
+        if (!result.success || !result.data.length) {
+            container.innerHTML = `<p class="empty-note">No skills added yet.</p>`;
+            return;
+        }
+        container.innerHTML = result.data.map((skill, index) => `
+            <div class="skill-cell reveal-up stagger-${(index % 4) + 1}">
+                <span class="cell-num">0${index + 1}</span>
+                <h3>${escapeHtml(skill.name)}</h3>
+                <p>${escapeHtml(skill.level)}</p>
+            </div>
+        `).join('');
+        setupScrollReveal();
+    } catch (err) {
+        console.error('Error loading skills:', err);
+    }
+}
 
+// --- Fetch and Render Activities ---
+async function loadActivities() {
+    const container = document.querySelector('.activities-grid');
+    if (!container) return;
+    try {
+        const res = await fetch('/api/activities');
+        const result = await res.json();
+        if (!result.success || !result.data.length) {
+            container.innerHTML = `<p class="empty-note">No activities added yet.</p>`;
+            return;
+        }
+        container.innerHTML = result.data.map((act, index) => `
+            <div class="activity-card ${act.status === 'active' ? 'active-card' : 'pending-card'} reveal-up stagger-${(index % 4) + 1}">
+                <div class="card-meta">
+                    <span>${escapeHtml(act.label)}</span>
+                    <span class="status-indicator">${act.status === 'active' ? 'Active' : 'Upcoming'}</span>
+                </div>
+                <div class="card-body">
+                    <h3>${escapeHtml(act.title)}</h3>
+                    <p>${escapeHtml(act.description)}</p>
+                </div>
+                ${act.link_url ? `<a href="${escapeHtml(act.link_url)}" class="card-action">View Details <i class="fa-solid fa-arrow-right"></i></a>` : `<span class="card-action-disabled">In Progress</span>`}
+            </div>
+        `).join('');
+        setupScrollReveal();
+    } catch (err) {
+        console.error('Error loading activities:', err);
+    }
+}
 function escapeHtml(str) {
     if (!str) return '';
     return str

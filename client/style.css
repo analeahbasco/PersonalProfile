@@ -854,3 +854,44 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
+/* --- Reusable Global Button Style Component --- */
+.btn-primary, #addCertificateBtn, #addSkillBtn, #addActivityBtn, #addGalleryBtn, .login-card button[type="submit"] {
+    background-color: var(--line-color, #1C2D27) !important; /* Deep Ivy Green */
+    color: var(--color-cream, #F9FDFB) !important;
+    border: 1px solid var(--line-color, #1C2D27) !important;
+    padding: 10px 20px !important;
+    border-radius: 8px !important;
+    font-family: var(--font-sans), sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+.btn-primary:hover, #addCertificateBtn:hover, #addSkillBtn:hover, #addActivityBtn:hover, #addGalleryBtn:hover, .login-card button[type="submit"]:hover {
+    background-color: #121F1B !important; /* Darker tone for feedback */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(28, 45, 39, 0.15);
+}
+
+/* --- Reusable Modern Admin Form Inputs --- */
+.custom-input, .modal-content input, .modal-content select, .modal-content textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #ffffff;
+    border: 1px solid var(--line-color, #1C2D27);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--text-main, #1C2D27);
+    transition: all 0.3s ease;
+}
+
+.custom-input:focus, .modal-content input:focus, .modal-content select:focus, .modal-content textarea:focus {
+    outline: none;
+    border-color: var(--text-sub, #4A6358);
+    box-shadow: 0 4px 12px rgba(28, 45, 39, 0.08);
+}
